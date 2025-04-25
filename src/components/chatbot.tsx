@@ -1,11 +1,25 @@
 "use client";
-import { useState } from 'react';
+import { useState, ChangeEvent } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { MessageCircle, X, Menu } from 'lucide-react';
+import { X } from 'lucide-react';
 
-const AppointmentChatbot = ({ onOpen, onClose, isOpen }: { onOpen: () => void, onClose: () => void, isOpen: boolean }) => {
+interface FormData {
+    name: string;
+    phone: string;
+    date: string;
+    service: string;
+    message: string;
+}
+
+interface AppointmentChatbotProps {
+    onOpen: () => void;
+    onClose: () => void;
+    isOpen: boolean;
+}
+
+const AppointmentChatbot: React.FC<AppointmentChatbotProps> = ({ onClose, isOpen }) => {
     const [step, setStep] = useState(1);
-    const [formData, setFormData] = useState({
+    const [formData, setFormData] = useState<FormData>({
         name: '',
         phone: '',
         date: '',
@@ -22,12 +36,12 @@ const AppointmentChatbot = ({ onOpen, onClose, isOpen }: { onOpen: () => void, o
         "Emergency Care"
     ];
 
-    const handleChange = (e: { target: { name: any; value: any; }; }) => {
+    const handleChange = (e: ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
         const { name, value } = e.target;
         setFormData(prev => ({ ...prev, [name]: value }));
     };
 
-    const handleSubmit = (e: { preventDefault: () => void; }) => {
+    const handleSubmit = (e: React.FormEvent) => {
         e.preventDefault();
         const whatsappMessage = `New Appointment Request:%0A%0A` +
             `*Name:* ${formData.name}%0A` +
@@ -73,7 +87,7 @@ const AppointmentChatbot = ({ onOpen, onClose, isOpen }: { onOpen: () => void, o
                             {step === 1 && (
                                 <div className="space-y-4 h-full flex flex-col">
                                     <p className="bg-purple-100 text-purple-800 p-3 rounded-lg max-w-xs">
-                                        Hello! Let's book your appointment. What's your name?
+                                        Hello! Let&apos;s book your appointment. What&apos;s your name?
                                     </p>
                                     <input
                                         type="text"
@@ -98,51 +112,51 @@ const AppointmentChatbot = ({ onOpen, onClose, isOpen }: { onOpen: () => void, o
 
                             {step === 2 && (
                                 <div className="space-y-4 h-full flex flex-col">
-                                <p className="bg-purple-100 text-purple-800 p-3 rounded-lg max-w-xs">
-                                  Hi {formData.name}, what's your phone number?
-                                </p>
-                                <div className="relative">
-                                  <input
-                                    type="tel"
-                                    name="phone"
-                                    value={formData.phone}
-                                    onChange={handleChange}
-                                    placeholder="Phone number (10 digits)"
-                                    className="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-transparent"
-                                    autoFocus
-                                    pattern="[0-9]{10}"
-                                    inputMode="numeric"
-                                  />
-                                  {formData.phone && !/^\d{10}$/.test(formData.phone) && (
-                                    <p className="mt-1 text-sm text-red-600">
-                                      Please enter a valid 10-digit phone number
+                                    <p className="bg-purple-100 text-purple-800 p-3 rounded-lg max-w-xs">
+                                        Hi {formData.name}, what&apos;s your phone number?
                                     </p>
-                                  )}
+                                    <div className="relative">
+                                        <input
+                                            type="tel"
+                                            name="phone"
+                                            value={formData.phone}
+                                            onChange={handleChange}
+                                            placeholder="Phone number (10 digits)"
+                                            className="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-transparent"
+                                            autoFocus
+                                            pattern="[0-9]{10}"
+                                            inputMode="numeric"
+                                        />
+                                        {formData.phone && !/^\d{10}$/.test(formData.phone) && (
+                                            <p className="mt-1 text-sm text-red-600">
+                                                Please enter a valid 10-digit phone number
+                                            </p>
+                                        )}
+                                    </div>
+                                    <div className="mt-auto flex space-x-2">
+                                        <button
+                                            onClick={() => setStep(1)}
+                                            className="flex-1 bg-gray-200 hover:bg-gray-300 text-gray-800 px-4 py-3 rounded-lg"
+                                        >
+                                            Back
+                                        </button>
+                                        <button
+                                            onClick={() => {
+                                                if (/^\d{10}$/.test(formData.phone)) {
+                                                    setStep(3);
+                                                }
+                                            }}
+                                            className={`flex-1 px-4 py-3 rounded-lg ${
+                                                /^\d{10}$/.test(formData.phone)
+                                                    ? 'bg-purple-600 hover:bg-purple-700 text-white'
+                                                    : 'bg-purple-400 text-white cursor-not-allowed'
+                                            }`}
+                                            disabled={!/^\d{10}$/.test(formData.phone)}
+                                        >
+                                            Next
+                                        </button>
+                                    </div>
                                 </div>
-                                <div className="mt-auto flex space-x-2">
-                                  <button
-                                    onClick={() => setStep(1)}
-                                    className="flex-1 bg-gray-200 hover:bg-gray-300 text-gray-800 px-4 py-3 rounded-lg"
-                                  >
-                                    Back
-                                  </button>
-                                  <button
-                                    onClick={() => {
-                                      if (/^\d{10}$/.test(formData.phone)) {
-                                        setStep(3);
-                                      }
-                                    }}
-                                    className={`flex-1 px-4 py-3 rounded-lg ${
-                                      /^\d{10}$/.test(formData.phone)
-                                        ? 'bg-purple-600 hover:bg-purple-700 text-white'
-                                        : 'bg-purple-400 text-white cursor-not-allowed'
-                                    }`}
-                                    disabled={!/^\d{10}$/.test(formData.phone)}
-                                  >
-                                    Next
-                                  </button>
-                                </div>
-                              </div>
                             )}
 
                             {step === 3 && (
@@ -181,52 +195,52 @@ const AppointmentChatbot = ({ onOpen, onClose, isOpen }: { onOpen: () => void, o
                             )}
 
                             {step === 4 && (
-                               <div className="space-y-4 h-full flex flex-col">
-                               <p className="bg-purple-100 text-purple-800 p-3 rounded-lg max-w-xs">
-                                 When would you like to visit us?
-                               </p>
-                               <div className="relative">
-                                 <input
-                                   type="date"
-                                   name="date"
-                                   value={formData.date}
-                                   onChange={handleChange}
-                                   min={new Date().toISOString().split('T')[0]} // Set min date to today
-                                   className="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-transparent"
-                                   autoFocus
-                                 />
-                                 {formData.date && new Date(formData.date) < new Date(new Date().setHours(0,0,0,0)) && (
-                                   <p className="mt-1 text-sm text-red-600">
-                                     Please select a future date
-                                   </p>
-                                 )}
-                               </div>
-                               <div className="mt-auto flex space-x-2">
-                                 <button
-                                   onClick={() => setStep(3)}
-                                   className="flex-1 bg-gray-200 hover:bg-gray-300 text-gray-800 px-4 py-3 rounded-lg"
-                                 >
-                                   Back
-                                 </button>
-                                 <button
-                                   onClick={() => {
-                                     const selectedDate = new Date(formData.date);
-                                     const today = new Date(new Date().setHours(0,0,0,0));
-                                     if (selectedDate >= today) {
-                                       setStep(5);
-                                     }
-                                   }}
-                                   className={`flex-1 px-4 py-3 rounded-lg ${
-                                     formData.date && new Date(formData.date) >= new Date(new Date().setHours(0,0,0,0))
-                                       ? 'bg-purple-600 hover:bg-purple-700 text-white'
-                                       : 'bg-purple-400 text-white cursor-not-allowed'
-                                   }`}
-                                   disabled={!formData.date || new Date(formData.date) < new Date(new Date().setHours(0,0,0,0))}
-                                 >
-                                   Next
-                                 </button>
-                               </div>
-                             </div>
+                                <div className="space-y-4 h-full flex flex-col">
+                                    <p className="bg-purple-100 text-purple-800 p-3 rounded-lg max-w-xs">
+                                        When would you like to visit us?
+                                    </p>
+                                    <div className="relative">
+                                        <input
+                                            type="date"
+                                            name="date"
+                                            value={formData.date}
+                                            onChange={handleChange}
+                                            min={new Date().toISOString().split('T')[0]} // Set min date to today
+                                            className="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-transparent"
+                                            autoFocus
+                                        />
+                                        {formData.date && new Date(formData.date) < new Date(new Date().setHours(0, 0, 0, 0)) && (
+                                            <p className="mt-1 text-sm text-red-600">
+                                                Please select a future date
+                                            </p>
+                                        )}
+                                    </div>
+                                    <div className="mt-auto flex space-x-2">
+                                        <button
+                                            onClick={() => setStep(3)}
+                                            className="flex-1 bg-gray-200 hover:bg-gray-300 text-gray-800 px-4 py-3 rounded-lg"
+                                        >
+                                            Back
+                                        </button>
+                                        <button
+                                            onClick={() => {
+                                                const selectedDate = new Date(formData.date);
+                                                const today = new Date(new Date().setHours(0, 0, 0, 0));
+                                                if (selectedDate >= today) {
+                                                    setStep(5);
+                                                }
+                                            }}
+                                            className={`flex-1 px-4 py-3 rounded-lg ${
+                                                formData.date && new Date(formData.date) >= new Date(new Date().setHours(0, 0, 0, 0))
+                                                    ? 'bg-purple-600 hover:bg-purple-700 text-white'
+                                                    : 'bg-purple-400 text-white cursor-not-allowed'
+                                            }`}
+                                            disabled={!formData.date || new Date(formData.date) < new Date(new Date().setHours(0, 0, 0, 0))}
+                                        >
+                                            Next
+                                        </button>
+                                    </div>
+                                </div>
                             )}
 
                             {step === 5 && (

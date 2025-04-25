@@ -1,6 +1,6 @@
 "use client";
 
-import { experimental_useEffectEvent, useState } from 'react';
+import { useState } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
 import ServicesDropdown from './ServicesDropdown';

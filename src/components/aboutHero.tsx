@@ -1,6 +1,6 @@
 'use client';
 
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useCallback, useMemo } from 'react';
 import Image from 'next/image';
 import { ChevronLeft, ChevronRight } from 'lucide-react';
 import { useChatbot } from './chatbotContext';
@@ -8,7 +8,8 @@ import { useChatbot } from './chatbotContext';
 const AboutHero = () => {
     const { handleOpenChatbot } = useChatbot();
 
-  const slides = [
+  // Wrap slides in useMemo to prevent recreation on every render
+  const slides = useMemo(() => [
     {
       id: 1,
       title: "Prudentia Micro Dental Care",
@@ -27,24 +28,24 @@ const AboutHero = () => {
       subtitle: "Highly qualified professionals dedicated to your smile",
       image: "/images/team.jpg",
     },
-  ];
+  ], []);
 
   const [currentSlide, setCurrentSlide] = useState(0);
 
-  const nextSlide = () => {
+  const nextSlide = useCallback(() => {
     setCurrentSlide((prev) => (prev === slides.length - 1 ? 0 : prev + 1));
-  };
+  }, [slides]); // Now slides is memoized and won't change
 
-  const prevSlide = () => {
+  const prevSlide = useCallback(() => {
     setCurrentSlide((prev) => (prev === 0 ? slides.length - 1 : prev - 1));
-  };
+  }, [slides]);
 
   useEffect(() => {
     const interval = setInterval(() => {
       nextSlide();
     }, 5000);
     return () => clearInterval(interval);
-  }, []);
+  }, [nextSlide]);
 
   return (
     <div className="relative bg-gradient-to-r from-blue-50 to-purple-50 py-12 md:py-16 overflow-hidden">

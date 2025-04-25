@@ -1,8 +1,7 @@
 // app/about/page.tsx
 'use client';
 
-import Image from 'next/image';
-import { Clock, MapPin, Phone, Mail, Link } from 'lucide-react';
+
 import { useChatbot } from '@/components/chatbotContext';
 import AboutHero from '@/components/aboutHero';
 
@@ -30,7 +29,7 @@ export default function AboutPage() {
                 high-quality dental care using the latest technology.
               </p>
               <p>
-                Today, we're proud to be one of Pune's most trusted dental clinics, having transformed thousands 
+                Today, we&aposre proud to be one of Pune&aposs most trusted dental clinics, having transformed thousands 
                 of smiles with our personalized approach and commitment to excellence.
               </p>
               <p>

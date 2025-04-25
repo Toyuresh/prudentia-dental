@@ -1,6 +1,7 @@
 "use client";
 
-import { useState, useRef, useEffect } from 'react';
+import { useState, useRef, useEffect, useCallback } from 'react';
+import Image from 'next/image';
 
 export default function ImageComparisonSlider({
   beforeImage,
@@ -13,28 +14,28 @@ export default function ImageComparisonSlider({
   const [isDragging, setIsDragging] = useState(false);
   const containerRef = useRef<HTMLDivElement>(null);
 
-  const handleMove = (clientX: number) => {
+  const handleMove = useCallback((clientX: number) => {
     if (!containerRef.current) return;
 
     const containerRect = containerRef.current.getBoundingClientRect();
     const relativeX = clientX - containerRect.left;
     const percentage = (relativeX / containerRect.width) * 100;
     setSliderPosition(Math.min(Math.max(percentage, 0), 100));
-  };
+  }, []);
 
-  const handleInteractionStart = () => {
+  const handleInteractionStart = useCallback(() => {
     setIsDragging(true);
-  };
+  }, []);
 
-  const handleInteractionMove = (e: MouseEvent | TouchEvent) => {
+  const handleInteractionEnd = useCallback(() => {
+    setIsDragging(false);
+  }, []);
+
+  const handleInteractionMove = useCallback((e: MouseEvent | TouchEvent) => {
     if (!isDragging) return;
     const clientX = 'touches' in e ? e.touches[0].clientX : e.clientX;
     handleMove(clientX);
-  };
-
-  const handleInteractionEnd = () => {
-    setIsDragging(false);
-  };
+  }, [isDragging, handleMove]);
 
   useEffect(() => {
     window.addEventListener('mousemove', handleInteractionMove);
@@ -48,7 +49,7 @@ export default function ImageComparisonSlider({
       window.removeEventListener('touchmove', handleInteractionMove);
       window.removeEventListener('touchend', handleInteractionEnd);
     };
-  }, [isDragging]);
+  }, [handleInteractionMove, handleInteractionEnd]);
 
   return (
     <div className="relative w-full h-full max-w-4xl mx-auto aspect-video rounded-xl overflow-hidden shadow-xl bg-gray-100">
@@ -56,10 +57,12 @@ export default function ImageComparisonSlider({
       <div ref={containerRef} className="absolute w-full h-full overflow-hidden">
         {/* Before Image (full width) */}
         <div className="absolute inset-0 w-full h-full overflow-hidden">
-          <img
+          <Image
             src={beforeImage}
-            alt="Before treatment"
+            alt="After treatment"
             className="w-full h-full object-cover select-none pointer-events-none"
+            width={1200}
+            height={800}
             draggable="false"
           />
         </div>
@@ -69,10 +72,12 @@ export default function ImageComparisonSlider({
           className="absolute inset-0 h-full overflow-hidden"
           style={{ width: `${sliderPosition}%` }}
         >
-          <img
+          <Image
             src={afterImage}
             alt="After treatment"
             className="w-full h-full object-cover select-none pointer-events-none"
+            width={1200}
+            height={800}
             draggable="false"
           />
         </div>

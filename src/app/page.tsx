@@ -1,8 +1,6 @@
 "use client";
 
-import Navbar from "@/components/navbar";
-import { useState, useEffect } from "react";
-import ChatbotButton from "@/components/chatbotButton";
+
 import Reviews from "@/components/reviews";
 import ContactUs from "@/components/contatcus";
 import HeroSection from "@/components/heroSection";

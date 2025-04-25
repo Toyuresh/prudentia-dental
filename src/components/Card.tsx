@@ -1,14 +1,14 @@
 'use client';
 import React from "react";
 import Link from "next/link";
+import Image from "next/image";
 
-const Card = ({index,
+const Card = ({
   title,
   description,
   imageUrl,
   link,
 }: {
-  index:number;
   title: string;
   description: string;
   imageUrl: string;
@@ -16,13 +16,16 @@ const Card = ({index,
 }) => {
   return (
   <div className="max-w-sm bg-white border border-gray-200 rounded-lg shadow-sm dark:bg-gradient-to-r from-purple-900 via-indigo-600 to-indigo-900 dark:border-gray-700">
-    <a href={link}>
-      <img
-        className="rounded-t-lg w-full h-48 object-cover"
-        src={imageUrl}
-        alt={title}
-      />
-    </a>
+ 
+  <Link href={link}>
+    <Image
+      className="rounded-t-lg w-full h-48 object-cover"
+      src={imageUrl}
+      alt={title}
+      width={1200}
+      height={500}
+    />
+  </Link>
     <div className="p-5">
       <a href={link}>
         <h5 className="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">

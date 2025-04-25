@@ -21,12 +21,6 @@ export default function ClientLayout({
     setIsChatbotOpen(false)
   }
 
-  const openChatbot = () => {
-    const chatbotButton = document.querySelector("#chatbot-button")
-    if (chatbotButton) {
-      (chatbotButton as HTMLElement).click()
-    }
-  }
 
   return (
     <ChatbotProvider>

@@ -208,7 +208,7 @@ const imageVariants = {
             Ready to Transform Your Smile?
           </h2>
           <p className="text-purple-100 mb-8 max-w-3xl mx-auto text-lg leading-relaxed">
-            Our general dentistry services provide the foundation for a lifetime of healthy, beautiful smiles.  We're here to partner with you on your oral health journey.
+            Our general dentistry services provide the foundation for a lifetime of healthy, beautiful smiles.  We&aposre here to partner with you on your oral health journey.
           </p>
           <button onClick={handleOpenChatbot} className="bg-white text-purple-600 hover:bg-purple-50 hover:scale-105 px-10 py-3.5 rounded-full font-semibold transition-all duration-300 shadow-lg">
             Book an Appointment Today
