@@ -1,5 +1,6 @@
 'use client';
-import ImageComparisonSlider from "./slider";
+import BeforeAfterSlider from "./slider";
+
 
 export default function SmileSection() {
   return (
@@ -14,21 +15,21 @@ export default function SmileSection() {
       {/* *Before and after Slider */}
       <section className="py-1 px-4 bg-white ">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-10">
-          <ImageComparisonSlider
-            beforeImage="/images/after1.jpg"
-            afterImage="/images/before1.jpg"
+          <BeforeAfterSlider
+            beforeImage="/images/after1.JPG"
+            afterImage="/images/before1.JPG"
           />
-          <ImageComparisonSlider
-            beforeImage="/images/after2.jpg"
-            afterImage="/images/before2.jpg"
+          <BeforeAfterSlider
+            beforeImage="/images/after2.JPG"
+            afterImage="/images/before2.JPG"
           />
-          <ImageComparisonSlider
-            beforeImage="/images/before3.jpg"
-            afterImage="/images/after3.jpg"
+          <BeforeAfterSlider
+            beforeImage="/images/after3.JPG"
+            afterImage="/images/before3.JPG"
           />
-          <ImageComparisonSlider
-            beforeImage="/images/before4.jpg"
-            afterImage="/images/after4.jpg"
+          <BeforeAfterSlider
+            beforeImage="/images/after4.JPG"
+            afterImage="/images/before4.JPG"
           />
         </div>
       </section>

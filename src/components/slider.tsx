@@ -1,137 +1,112 @@
-"use client";
+'use client';
 
+import Image, { StaticImageData } from 'next/image';
 import { useState, useRef, useEffect, useCallback } from 'react';
-import Image from 'next/image';
+import { MoveHorizontal } from 'lucide-react';
 
-export default function ImageComparisonSlider({
+interface BeforeAfterSliderProps {
+  beforeImage: StaticImageData | string;
+  afterImage: StaticImageData | string;
+  beforeLabel?: string;
+  afterLabel?: string;
+}
+
+export default function BeforeAfterSlider({
   beforeImage,
   afterImage,
-}: {
-  beforeImage: string;
-  afterImage: string;
-}) {
+  beforeLabel = 'Before',
+  afterLabel = 'After',
+}: BeforeAfterSliderProps) {
   const [sliderPosition, setSliderPosition] = useState(50);
   const [isDragging, setIsDragging] = useState(false);
   const containerRef = useRef<HTMLDivElement>(null);
 
-  const handleMove = useCallback((clientX: number) => {
+  const updateSliderPosition = useCallback((clientX: number) => {
     if (!containerRef.current) return;
-
-    const containerRect = containerRef.current.getBoundingClientRect();
-    const relativeX = clientX - containerRect.left;
-    const percentage = (relativeX / containerRect.width) * 100;
-    setSliderPosition(Math.min(Math.max(percentage, 0), 100));
+    const rect = containerRef.current.getBoundingClientRect();
+    const x = Math.min(Math.max(clientX - rect.left, 0), rect.width);
+    const percentage = (x / rect.width) * 100;
+    setSliderPosition(percentage);
   }, []);
 
-  const handleInteractionStart = useCallback(() => {
-    setIsDragging(true);
-  }, []);
-
-  const handleInteractionEnd = useCallback(() => {
-    setIsDragging(false);
-  }, []);
-
-  const handleInteractionMove = useCallback((e: MouseEvent | TouchEvent) => {
-    if (!isDragging) return;
-    const clientX = 'touches' in e ? e.touches[0].clientX : e.clientX;
-    handleMove(clientX);
-  }, [isDragging, handleMove]);
+  const handleMouseDown = () => setIsDragging(true);
+  const handleMouseUp = useCallback(() => setIsDragging(false), []);
+  
+  const handleMouseMove = useCallback((e: MouseEvent) => {
+    updateSliderPosition(e.clientX);
+  }, [updateSliderPosition]);
+  
+  const handleTouchMove = useCallback((e: TouchEvent) => {
+    if (e.touches.length > 0) updateSliderPosition(e.touches[0].clientX);
+  }, [updateSliderPosition]);
 
   useEffect(() => {
-    window.addEventListener('mousemove', handleInteractionMove);
-    window.addEventListener('mouseup', handleInteractionEnd);
-    window.addEventListener('touchmove', handleInteractionMove);
-    window.addEventListener('touchend', handleInteractionEnd);
-
+    if (isDragging) {
+      window.addEventListener('mousemove', handleMouseMove);
+      window.addEventListener('mouseup', handleMouseUp);
+      window.addEventListener('touchmove', handleTouchMove);
+      window.addEventListener('touchend', handleMouseUp);
+    }
     return () => {
-      window.removeEventListener('mousemove', handleInteractionMove);
-      window.removeEventListener('mouseup', handleInteractionEnd);
-      window.removeEventListener('touchmove', handleInteractionMove);
-      window.removeEventListener('touchend', handleInteractionEnd);
+      window.removeEventListener('mousemove', handleMouseMove);
+      window.removeEventListener('mouseup', handleMouseUp);
+      window.removeEventListener('touchmove', handleTouchMove);
+      window.removeEventListener('touchend', handleMouseUp);
     };
-  }, [handleInteractionMove, handleInteractionEnd]);
+  }, [isDragging, handleMouseMove, handleMouseUp, handleTouchMove]);
 
   return (
-    <div className="relative w-full h-full max-w-4xl mx-auto aspect-video rounded-xl overflow-hidden shadow-xl bg-gray-100">
-      {/* Container for both images */}
-      <div ref={containerRef} className="absolute w-full h-full overflow-hidden">
-        {/* Before Image (full width) */}
-        <div className="absolute inset-0 w-full h-full overflow-hidden">
-          <Image
-            src={beforeImage}
-            alt="After treatment"
-            className="w-full h-full object-cover select-none pointer-events-none"
-            width={1200}
-            height={800}
-            draggable="false"
-          />
-        </div>
+    <div className="relative w-full max-w-5xl mx-auto aspect-video rounded-2xl overflow-hidden shadow-xl border border-gray-200">
+      <div ref={containerRef} className="relative w-full h-full select-none touch-none">
 
-        {/* After Image (clipped based on slider position) */}
+        {/* Before Image - Full */}
+        <Image
+          src={beforeImage}
+          alt="Before"
+          fill
+          className="object-cover"
+          sizes="(max-width: 768px) 100vw, 80vw"
+          priority
+        />
+
+        {/* After Image - Clipped */}
         <div
-          className="absolute inset-0 h-full overflow-hidden"
-          style={{ width: `${sliderPosition}%` }}
+          className="absolute inset-0 h-full w-full"
+          style={{
+            clipPath: `inset(0 ${100 - sliderPosition}% 0 0)`,
+            WebkitClipPath: `inset(0 ${100 - sliderPosition}% 0 0)`,
+          }}
         >
           <Image
             src={afterImage}
-            alt="After treatment"
-            className="w-full h-full object-cover select-none pointer-events-none"
-            width={1200}
-            height={800}
-            draggable="false"
+            alt="After"
+            fill
+            className="object-cover"
+            sizes="(max-width: 768px) 100vw, 80vw"
+            priority
           />
         </div>
 
-        {/* Slider Line with Centered Handle */}
+        {/* Slider Handle */}
         <div
-          className={`absolute top-0 bottom-0 w-1.5  cursor-ew-resize z-10 ${
-            isDragging ? 'bg-white' : ''
-          }`}
-          style={{ left: `${sliderPosition}%` }}
+          className="absolute top-0 bottom-0 w-1  z-20 cursor-ew-resize"
+          style={{ left: `${sliderPosition}%`, transform: 'translateX(-50%)' }}
+          onMouseDown={handleMouseDown}
+          onTouchStart={handleMouseDown}
         >
-          {/* Centered Handle */}
-          <div
-            className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 flex items-center justify-center w-10 h-20 rounded-full bg-white shadow-xl border-2 border-gray-200 hover:bg-blue-50 active:bg-blue-100 transition-colors"
-            onMouseDown={handleInteractionStart}
-            onTouchStart={handleInteractionStart}
-          >
-            <div className="flex  items-center space-x-1">
-              <svg
-                className="w-4 h-4 text-gray-500"
-                fill="none"
-                stroke="currentColor"
-                viewBox="0 0 24 24"
-              >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth={2}
-                  d="M15 19l-7-7 7-7"
-                />
-              </svg>
-              <svg
-                className="w-4 h-4 text-gray-500"
-                fill="none"
-                stroke="currentColor"
-                viewBox="0 0 24 24"
-              >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth={2}
-                  d="M9 5l7 7-7 7"
-                />
-              </svg>
+          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 z-30">
+            <div className="w-12 h-12 bg-white rounded-full border shadow-md flex items-center justify-center">
+              <MoveHorizontal className="text-gray-600 w-5 h-5" />
             </div>
           </div>
         </div>
 
         {/* Labels */}
-        <div className="absolute bottom-4 left-4 px-3 py-1 bg-black/80 text-white rounded-md text-sm font-medium backdrop-blur-sm">
-          Before
+        <div className="absolute bottom-5 left-5 bg-black/60 text-white text-sm px-4 py-1.5 rounded-full backdrop-blur-md shadow">
+          {beforeLabel}
         </div>
-        <div className="absolute bottom-4 right-4 px-3 py-1 bg-black/80 text-white rounded-md text-sm font-medium backdrop-blur-sm">
-          After
+        <div className="absolute bottom-5 right-5 bg-black/60 text-white text-sm px-4 py-1.5 rounded-full backdrop-blur-md shadow">
+          {afterLabel}
         </div>
       </div>
     </div>

@@ -33,7 +33,8 @@ const AppointmentChatbot: React.FC<AppointmentChatbotProps> = ({ onClose, isOpen
         "Dental Implants",
         "Teeth Whitening",
         "Orthodontics",
-        "Emergency Care"
+        "Emergency Care",
+        "Other"
     ];
 
     const handleChange = (e: ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {

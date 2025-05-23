@@ -3,43 +3,75 @@
 import { useState, useRef } from 'react';
 import Link from 'next/link';
 
-export default function MobileServicesDropdown() {
+interface MobileServicesDropdownProps {
+  onClick?: () => void;
+}
+
+const MobileServicesDropdown = ({ onClick }: MobileServicesDropdownProps) => {
   const [isServicesOpen, setIsServicesOpen] = useState(false);
   const [openSubCategory, setOpenSubCategory] = useState<string | null>(null);
   const dropdownRef = useRef<HTMLDivElement>(null);
 
   const services = {
-    General: [
-      { name: "Cleaning & Exams", href: "/services/general/#CleaningExams" },
-      { name: "White Fillings", href: "/services/general/#WhiteFillings" },
-      { name: "Sleep Apnea", href: "/services/general/#SleepApnea" },
-      { name: "Emergency Care", href: "/services/general/#EmergencyCare" },
-      { name: "Root Canals", href: "/services/general/#RootCanals" },
-      { name: "Deep Cleaning", href: "/services/general/#DeepCleaning" },
+    "Micro Examinations & Cleanings": [
+      { name: "Micro Examinations and Cleanings", href: "/services/micro" },
     ],
-    Cosmetic: [
-      { name: "Smile Makeover", href: "/services/cosmetic/#SmileMakeover" },
-      { name: "Teeth Whitening", href: "/services/cosmetic/#TeethWhitening" },
-      { name: "Clear Aligners", href: "/services/cosmetic/#ClearAligners" },
-      { name: "Veneers", href: "/services/cosmetic/#Veneers" },
+    "Contemporary Root Treatments": [
+      { name: "Micro-Root Treatment", href: "/services/root/microroot" },
+      { name: "Revisional Micro-Root Therapy", href: "/services/root/roottherapy" },
+      { name: "Micro-Surgical Root Therapy", href: "/services/root/microsurgical" },
+      { name: "Regenerative Root Procedures", href: "/services/root/rootprocedures" },
     ],
-    Surgical: [
-      { name: "Implants", href: "/services/surgical/#Implants" },
-      { name: "Sedation Dentistry", href: "/services/surgical/#SedationDentistry" },
-      { name: "Extractions", href: "/services/surgical/#Extractions" },
-      { name: "Dentures", href: "/services/surgical/#Dentures" },
-      { name: "All on 4 Implants", href: "/services/surgical/#Allonimplants" },
-      { name: "Bone Graft", href: "/services/surgical/#BoneGraft" },
-    ]
+    "Minimally Invasive Cosmetic Dentistry": [
+      { name: "Smile Recreations", href: "/services/cosmetic/smile" },
+      { name: "Enamel Reshaping", href: "/services/cosmetic/enamel" },
+      { name: "Bonding (Tooth Colored Fillings)", href: "/services/cosmetic/bonding" },
+      { name: "Tooth Jewellery", href: "/services/cosmetic/jewellery" },
+      { name: "Sealants", href: "/services/cosmetic/sealants" },
+      { name: "Veneers", href: "/services/cosmetic/veneers" },
+      { name: "Teeth Whitening", href: "/services/cosmetic/whitening" },
+    ],
+    "Restorative Dentistry": [
+      { name: "Tooth Colored Fillings", href: "/services/restorative/coloured" },
+      { name: "Inlays and Onlays", href: "/services/restorative/inlays" },
+      { name: "Crowns and Bridges", href: "/services/restorative/crowns" },
+      { name: "Full Mouth Rehabilitation", href: "/services/restorative/rehabilitation" },
+    ],
+    "Preventive & Holistic Dentistry": [
+      { name: "Oral Hygiene Measures", href: "/services/preventive/oral" },
+      { name: "Mouth & Sport Guards", href: "/services/preventive/guards" },
+      { name: "Holistic Dental Treatments", href: "/services/preventive/holistic" },
+    ],
+    "Children's Dentistry": [
+      { name: "Children's Dental Services", href: "/services/childrens" },
+    ],
+    "Surgical": [
+      { name: "Wisdom Tooth Extraction", href: "/services/surgical/wisdom" },
+      { name: "Implants", href: "/services/surgical/implants" },
+      { name: "Gum Care", href: "/services/surgical/gumcare" },
+    ],
+    "Braces": [
+      { name: "Metal & Ceramic Braces", href: "/services/braces/braces" },
+      { name: "Aligners", href: "/services/braces/aligners" },
+    ],
+    "Dentures": [
+      { name: "Conventional Dentures & Implant Supported Dentures", href: "/services/dentures" },
+    ],
   };
 
   const toggleServices = () => {
     setIsServicesOpen(!isServicesOpen);
-    setOpenSubCategory(null); // Close any open sub-categories when the main dropdown is toggled
+    setOpenSubCategory(null);
   };
 
   const toggleSubCategory = (category: string) => {
     setOpenSubCategory(openSubCategory === category ? null : category);
+  };
+
+  const handleServiceClick = () => {
+    setIsServicesOpen(false);
+    setOpenSubCategory(null);
+    if (onClick) onClick(); // Call the parent's onClick handler if it exists
   };
 
   return (
@@ -49,7 +81,7 @@ export default function MobileServicesDropdown() {
         onClick={toggleServices}
         className="flex items-center border-b justify-between w-full px-1 py-3 text-left text-gray-700 hover:bg-gray-50"
       >
-        <span className="font-medium ">Services</span>
+        <span className="font-medium">Services</span>
         <svg
           className={`h-5 w-5 transform transition-transform ${
             isServicesOpen ? 'rotate-180' : ''
@@ -75,7 +107,7 @@ export default function MobileServicesDropdown() {
                 onClick={() => toggleSubCategory(category)}
                 className="flex items-center justify-between w-full px-3 py-3 text-left text-gray-700"
               >
-                <span className="font-medium text-blue-600">{category}</span>
+                <span className="font-medium text-purple-600">{category}</span>
                 <svg
                   className={`h-5 w-5 transform transition-transform ${
                     openSubCategory === category ? 'rotate-180' : ''
@@ -98,8 +130,8 @@ export default function MobileServicesDropdown() {
                     <Link
                       key={service.name}
                       href={service.href}
-                      className="block px-3 py-2.5 text-sm text-gray-700 hover:bg-blue-50 hover:text-blue-600 rounded-md transition-colors"
-                      onClick={() => setOpenSubCategory(null)} // Optionally close the sub-category on link click
+                      className="block px-3 py-2.5 text-sm text-gray-700 hover:bg-purple-50 hover:text-purple-600 rounded-md transition-colors"
+                      onClick={handleServiceClick} // Use the new handler here
                     >
                       {service.name}
                     </Link>
@@ -113,3 +145,5 @@ export default function MobileServicesDropdown() {
     </div>
   );
 }
+
+export default MobileServicesDropdown;

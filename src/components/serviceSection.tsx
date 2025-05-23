@@ -1,5 +1,5 @@
 'use client';
-import ThreeCardsRow from "./ThreeCardsRow";
+import ThemeCarousel from "./serviceCarousel";
 
 export default function ServiceSection()
 {
@@ -7,14 +7,14 @@ export default function ServiceSection()
         <div>
         <section className="flex bg-white items-center justify-center">
         <div className="container mx-auto px-4 mt-10">
-          <h2 className="text-4xl font-bold text-center ">Our Services</h2>
+          <h2 className="text-4xl font-bold text-center ">Why Prudentia?</h2>
         </div>
       </section>
       <section
         id="services"
         className="flex bg-white items-center justify-center "
       >
-        <ThreeCardsRow />
+        <ThemeCarousel/>
       </section>
       </div>
     );

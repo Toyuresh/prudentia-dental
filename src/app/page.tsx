@@ -6,7 +6,8 @@ import ContactUs from "@/components/contatcus";
 import HeroSection from "@/components/heroSection";
 import ServiceSection from "@/components/serviceSection";
 import SmileSection from "@/components/SmileSection";
-import ChooseUs from "@/components/chooseUs";
+import DoctorsSection from "@/components/doctorProfile";
+import TechnologySection from "@/components/uniqueFeature";
 
 export default function Home() {
 
@@ -23,8 +24,10 @@ export default function Home() {
       <SmileSection/>
 
       {/* Why Choose Us */}
-      <ChooseUs/>
+      {/* <ChooseUs/> */}
+      <DoctorsSection/>
 
+      <TechnologySection/>
       <ContactUs />
     
       <Reviews />

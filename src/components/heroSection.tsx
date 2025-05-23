@@ -1,76 +1,170 @@
-'use client';
-import { useEffect, useState } from "react";
-import { useChatbot } from '@/components/chatbotContext';
 
-const bannerImages = [
-  "/images/banner1.jpg",
-  "/images/banner2.jpg",
-  "/images/banner3.jpg",
-];
+"use client"; // Required for Swiper in Next.js 13+
 
+import React from "react";
+import { Swiper, SwiperSlide } from "swiper/react";
+import { Autoplay, Pagination, Navigation } from "swiper/modules";
+import Image from "next/image";
+ import { useChatbot } from '@/components/chatbotContext';
 
-const HeroSection = () => 
-{
-    const [currentSlide, setCurrentSlide] = useState(0);
-    const { handleOpenChatbot } = useChatbot();
+// Import Swiper styles
+import "swiper/css";
+import "swiper/css/pagination";
+import "swiper/css/navigation";
 
-    useEffect(() => {
-        const timer = setInterval(() => {
-          setCurrentSlide((prev) => (prev + 1) % bannerImages.length);
-        }, 5000);
-        return () => clearInterval(timer);
-      }, []);
-    return (
-        <section className="relative h-[90vh] border-b">
-        {bannerImages.map((image, index) => (
-          <div
-            key={index}
-            className={`absolute inset-0 transition-opacity duration-1000 ${
-              currentSlide === index ? "opacity-100" : "opacity-0"
-            }`}
-            style={{
-              backgroundImage: `linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url("${image}")`,
-              backgroundSize: "cover",
-              backgroundPosition: "center",
-            }}
-          />
-        ))}
-        <div className="relative h-full flex items-center justify-center">
-          <div className="text-center text-white">
-            <h1 className="text-5xl md:text-6xl font-bold mb-6">
-              Micro Dental Clinic
-            </h1>
-            <blockquote className="text-center text-2xl font-semibold text-gray-900 italic dark:text-white">
-              <span className="mr-1">Your</span>
-              <span className="mr-1">Journey</span>
-              <span className="mr-1">to</span>
-              <span className="mr-1">a</span>
-              <span className="mr-2">Perfect</span>
-              <span className="relative inline-block before:absolute before:-inset-1 px-1 before:block before:-skew-y-3 before:bg-purple-500">
-                <span className="relative text-white dark:text-gray-950">
-                  Smile
-                </span>
-              </span>
-              <span className="ml-1">Starts</span>
-              <span className="ml-1">Here</span>
-            </blockquote>
-            <div className="flex items-center justify-center">
-              <button
-                onClick={handleOpenChatbot}
-                className="mt-10 text-white bg-gradient-to-r from-purple-500 
-                via-purple-600 to-purple-700 hover:bg-gradient-to-br focus:ring-4 
-                focus:outline-none focus:ring-purple-300 dark:focus:ring-purple-800 
-                shadow-lg shadow-purple-500/50 dark:shadow-lg dark:shadow-purple-800/80 
-                font-medium rounded-full text-sm px-5 py-2.5 text-center me-2 mb-2"
-              >
-                Book Appointment
-              </button>
-            </div>
-          </div>
-        </div>
-      </section>
-    );
+interface BannerInfo {
+  id: string;
+  title: string;
+  subtitle?: string;
+  ctaText: string;
+  ctaAction?: () => void; // Add click handler
 }
 
+const HeroSection = () => {
+  const { handleOpenChatbot } = useChatbot();
+
+
+  const banners: BannerInfo[] = [
+    {
+      id: "banner1",
+      title: "Modern dentistry in a relaxing high-tech environment",
+      subtitle: "",
+      ctaText: "Book Appointment",
+      ctaAction: handleOpenChatbot
+      
+    },
+    {
+      id: "banner2",
+      title: "The cure for dental anxiety.",
+      subtitle: "The home of radiant smiles.",
+      ctaText: "Book Appointment",
+        ctaAction: handleOpenChatbot
+    },
+    {
+      id: "banner3",
+      title: "Magnifying Precision Recreating Compassionate Smiles",
+      subtitle: "",
+      ctaText: "Book Appointment",
+      ctaAction: handleOpenChatbot
+    },
+    {
+      id: "banner4",
+      title: " Compassionate prevention, pursuit of excellence",
+      subtitle: "",
+      ctaText: "Book Appointment",
+      ctaAction: handleOpenChatbot
+    },
+  ];
+
+  const getImageSrc = (imageName: string) => {
+    return {
+      desktop: `/images/hero/desktop/${imageName}.png`,
+      tablet: `/images/hero/tablet/${imageName}.png`,
+      mobile: `/images/hero/mobile/${imageName}.png`,
+    };
+  };
+
+
+  return (
+    <section className="relative w-full h-[90vh] min-h-[500px] max-h-[1200px]">
+      <Swiper
+        spaceBetween={0}
+        centeredSlides={true}
+        autoplay={{ delay: 2000 }}
+        pagination={{ clickable: true }}
+        navigation={true}
+        modules={[Autoplay, Pagination, Navigation]}
+        className="w-full h-full"
+      >
+        {banners.map((banner, index) => {
+          const imageSrc = getImageSrc(banner.id);
+          return (
+            <SwiperSlide key={index}>
+              <div className="relative w-full h-full">
+                {/* Desktop Image */}
+                <div className="hidden md:block">
+                  <Image
+                    src={imageSrc.desktop}
+                    alt={`${banner.id} desktop`}
+                    fill
+                    priority={index === 0}
+                    quality={100}
+                    className="object-cover"
+                    sizes="100vw"
+                  />
+                </div>
+
+                {/* Tablet Image */}
+                <div className="hidden sm:block md:hidden">
+                  <Image
+                    src={imageSrc.tablet}
+                    alt={`${banner.id} tablet`}
+                    fill
+                    quality={100}
+                    className="object-cover"
+                    sizes="100vw"
+                  />
+                </div>
+
+                {/* Mobile Image */}
+                <div className="block sm:hidden">
+                  <Image
+                    src={imageSrc.mobile}
+                    alt={`${banner.id} mobile`}
+                    fill
+                    quality={80}
+                    className="object-cover"
+                    sizes="100vw"
+                  />
+                </div>
+
+                {/* Overlay */}
+                <div className="absolute inset-0 bg-black/30"></div>
+
+                {/* Content */}
+                <div className="absolute inset-0 flex items-center justify-center p-4">
+                  <div className="text-white text-center max-w-4xl">
+                    <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold mb-4">
+                      {banner.title}
+                    </h1>
+                    {banner.subtitle && (
+                      <p className="text-xl sm:text-2xl mb-6">
+                        {banner.subtitle}
+                      </p>
+                    )}
+                    <button className="px-8 py-3 sm:py-4 bg-gradient-to-r from-purple-600 to-purple-800 hover:from-purple-700 hover:to-purple-900 text-white font-medium rounded-full transition-all duration-300 shadow-lg hover:shadow-xl transform hover:scale-105"
+                    onClick={banner.ctaAction}>
+                      {banner.ctaText}
+                    </button>
+                  </div>
+                </div>
+              </div>
+              
+            </SwiperSlide>
+            
+          );
+        })}
+      </Swiper>
+      
+      {/* Scroll Indicator */}
+      <div className="absolute bottom-4 left-1/2 transform -translate-x-1/2 z-10 animate-bounce">
+        <svg
+          className="w-6 h-6 text-white"
+          fill="none"
+          stroke="currentColor"
+          viewBox="0 0 24 24"
+        >
+          <path
+            strokeLinecap="round"
+            strokeLinejoin="round"
+            strokeWidth={2}
+            d="M19 14l-7 7m0 0l-7-7m7 7V3"
+          />
+        </svg>
+      </div>
+     
+    </section>
+  );
+};
 
 export default HeroSection;

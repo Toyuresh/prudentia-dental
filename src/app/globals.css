@@ -4,6 +4,15 @@
   --foreground-rgb: 0, 0, 0;
   --background-start-rgb: 214, 219, 220;
   --background-end-rgb: 255, 255, 255;
+  
+  
+
+  --color1: #ffc567;
+  --color2: #fd7da8;
+  --color3: #fd5a46;
+  --color4: #552cb7;
+  --color5: #00595e;
+  --color6: #058cd7;
 }
 
 /* Smooth scroll behavior */
@@ -14,4 +23,111 @@ html {
 /* Better image rendering */
 img {
   image-rendering: -webkit-optimize-contrast;
+}
+
+/* Custom Swiper styles with Tailwind-like approach */
+/* globals.css */
+/* Ensure consistent image display */
+.swiper-slide {
+  position: relative;
+  overflow: hidden;
+}
+
+/* Better pagination bullets */
+.swiper-pagination-bullet {
+  width: 10px;
+  height: 10px;
+  background: white;
+  opacity: 0.6;
+  transition: all 0.3s ease;
+}
+
+.swiper-pagination-bullet-active {
+  background: #3b82f6;
+  opacity: 1;
+  transform: scale(1.2);
+}
+
+/* Mobile adjustments */
+@media (max-width: 640px) {
+  .swiper-pagination-bullet {
+    width: 8px;
+    height: 8px;
+  }
+  
+  .swiper-button-next, 
+  .swiper-button-prev {
+    display: none;
+  }
+}
+
+
+.font-bungee {
+  font-family: var(--heading-font);
+}
+
+.font-mono {
+  font-family: var(--font-stack);
+}
+
+.bg-bg-light {
+  background-color: var(--bg-light);
+}
+
+.bg-bg-dark {
+  background-color: var(--bg-dark);
+}
+
+.text-text-light {
+  color: var(--text-light);
+}
+
+.text-text-dark {
+  color: var(--text-dark);
+}
+
+.text-color1 { color: var(--color1); }
+.text-color2 { color: var(--color2); }
+.text-color3 { color: var(--color3); }
+.text-color4 { color: var(--color4); }
+.text-color5 { color: var(--color5); }
+.text-color6 { color: var(--color6); }
+
+.border-color1 { border-color: var(--color1); }
+.border-color2 { border-color: var(--color2); }
+.border-color3 { border-color: var(--color3); }
+.border-color4 { border-color: var(--color4); }
+.border-color5 { border-color: var(--color5); }
+.border-color6 { border-color: var(--color6); }
+
+.shadow-color1 { --tw-shadow-color: var(--color1); }
+.shadow-color2 { --tw-shadow-color: var(--color2); }
+.shadow-color3 { --tw-shadow-color: var(--color3); }
+.shadow-color4 { --tw-shadow-color: var(--color4); }
+.shadow-color5 { --tw-shadow-color: var(--color5); }
+.shadow-color6 { --tw-shadow-color: var(--color6); }
+
+
+
+.light-theme {
+  background-color: var(--bg-light);
+  color: var(--text-light);
+}
+
+.dark-theme {
+  background-color: var(--bg-dark);
+  color: var(--text-dark);
+}
+
+@keyframes scrollHorizontal {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+.animate-scroll-horizontal {
+  animation: scrollHorizontal linear infinite;
 }
