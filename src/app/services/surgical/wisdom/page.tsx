@@ -4,7 +4,7 @@ import { AlertTriangle, Shield, Heart, CheckCircle, Clock, Stethoscope } from 'l
 import { motion } from 'framer-motion';
 import { useChatbot } from '@/components/chatbotContext';
 import { FiArrowRight } from 'react-icons/fi';
-import Image from 'next/image';
+import { Image } from '@imagekit/next';
 
 const WisdomTeethExtractionPage = () => {
       const { handleOpenChatbot } = useChatbot();
@@ -160,7 +160,8 @@ const WisdomTeethExtractionPage = () => {
                   className="w-full rounded-2xl shadow-xl"
                 /> */}
                        <Image
-                          src="/images/services/surgical/wisdom/Image1.jpg" 
+                           urlEndpoint={process.env.NEXT_PUBLIC_IMAGEKIT_URL_ENDPOINT}
+                          src="hero/Services/surgical/1. Wisdom tooth extraction/painless-wisdom-tooth-extraction-recovery-prudentia-dental-pimple-saudagar.jpg" 
                            alt="Modern denture solutions"
                            fill
                           className="object-contain"
@@ -237,7 +238,8 @@ const WisdomTeethExtractionPage = () => {
                   className="w-full rounded-2xl shadow-xl"
                 /> */}
           <Image
-                          src="/images/services/surgical/wisdom/Image2.jpg" 
+              urlEndpoint={process.env.NEXT_PUBLIC_IMAGEKIT_URL_ENDPOINT}
+                          src="hero/Services/surgical/1. Wisdom tooth extraction/prudentia-dental-operatory-microscope-setup-pimple-saudagar.jpg" 
                            alt="Modern denture solutions"
                            fill
                           className="object-contain"
@@ -324,7 +326,8 @@ const WisdomTeethExtractionPage = () => {
                     className="w-full h-64 lg:h-80 object-contain"
                   /> */}
                             <Image
-                          src="/images/services/surgical/wisdom/Image3.png" 
+                                urlEndpoint={process.env.NEXT_PUBLIC_IMAGEKIT_URL_ENDPOINT}
+                          src="hero/Services/surgical/1. Wisdom tooth extraction/prudentias-dental-operatory-microscope-setup-pimple-saudagar.jpg" 
                            alt="Modern denture solutions"
                            fill
                           className="object-contain"

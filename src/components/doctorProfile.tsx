@@ -1,4 +1,4 @@
-import Image, { StaticImageData } from 'next/image';
+import { Image } from '@imagekit/next';
 import { useChatbot } from './chatbotContext';
 
 interface DoctorProfileProps {
@@ -7,7 +7,7 @@ interface DoctorProfileProps {
   qualifications: string[];
   experience: string;
   bio: string;
-  image: StaticImageData | string;
+  image: string;
   reverse?: boolean;
 }
 
@@ -26,6 +26,7 @@ const DoctorProfile = ({
       {/* Image Section */}
       <div className="w-full md:w-1/2 relative aspect-square rounded-2xl overflow-hidden shadow-xl">
         <Image
+          urlEndpoint={process.env.NEXT_PUBLIC_IMAGEKIT_URL_ENDPOINT}
           src={image}
           alt={`Dr. ${name}`}
           fill
@@ -100,7 +101,7 @@ free & minimally invasive care.
 
 From prevention to treatment, Dr. Mahajan combines cutting-edge techniques with
 compassionate care, delivering precise results that help you smile with confidence, now and in the future."
-          image="/images/doc1.jpg"
+          image="hero/Doctors/dr-bhushan-mahajan-micro-dentist-prudentia-dental-pimple-saudagar.jpg"
         />
 
         <DoctorProfile
@@ -113,7 +114,7 @@ With 10+ years of experience, Dr. Disha Avhad Mahajan offers expert care in pain
 canals, microscopic endodontics and comprehensive dental treatments. Based at Prudentia Micro Dental
 Care, Pimple Saudagar, she combines cutting-edge technology with a gentle, patient-first approach to
 help you achieve a healthier and brighter smile."
-          image="/images/doc2.jpg"
+          image="hero/Doctors/dr-disha-mahajan-friendly-gentle-dentist-prudentia-dental-p.jpg"
           reverse
         />
       </div>

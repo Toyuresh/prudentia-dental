@@ -1,7 +1,7 @@
 "use client"
 
 import { useChatbot } from '@/components/chatbotContext';
-import Image from 'next/image';
+import { Image } from '@imagekit/next';
 import { motion } from 'framer-motion';
 
 // Animation variants
@@ -53,8 +53,9 @@ export default function PrudentiaMicroDentalCare() {
         transition={{ duration: 0.8 }}
       >
         <Image
-          src="/images/Bannerpractice.jpg"
-          alt="Prudentia Micro Dental Care Clinic"
+          urlEndpoint={process.env.NEXT_PUBLIC_IMAGEKIT_URL_ENDPOINT}
+          src="hero/Practice/zoomed-dental-microscope-banner-prudentia-our-practice-pimple-saudagar.jpg"
+          alt="zoomed-dental-microscope-banner-prudentia-our-practice-pimple-saudagar"
           fill
           className="object-full"
           priority
@@ -107,8 +108,9 @@ export default function PrudentiaMicroDentalCare() {
             transition={{ type: "spring", stiffness: 300 }}
           >
             <Image
-              src="/images/practice1.jpg"
-              alt="Dental Operating Microscope"
+              urlEndpoint={process.env.NEXT_PUBLIC_IMAGEKIT_URL_ENDPOINT}
+          src="hero/Practice/dr-bhushan-mahajan-microscope-dental-treatment-patient-comfort-prudentia-pimple-saudagar.jpg"
+              alt="dr-bhushan-mahajan-microscope-dental-treatment-patient-comfort-prudentia-pimple-saudagar"
               width={600}
               height={400}
               className="w-full h-auto"
@@ -154,8 +156,9 @@ export default function PrudentiaMicroDentalCare() {
               transition={{ type: "spring", stiffness: 300 }}
             >
               <Image
-                src="/images/practice2.png"
-                alt="Dental Technology"
+               urlEndpoint={process.env.NEXT_PUBLIC_IMAGEKIT_URL_ENDPOINT}
+          src="hero/Practice/prudentia-dental-technology-collage-digital-xray-sterilizer-microscope-pimple-saudagar.jpg"
+                alt="prudentia-dental-technology-collage-digital-xray-sterilizer-microscope-pimple-saudagar"
                 width={600}
                 height={400}
                 className="w-full h-auto"
@@ -265,7 +268,8 @@ export default function PrudentiaMicroDentalCare() {
           <motion.div className="lg:w-1/3" variants={scaleUp}>
             <div className="rounded-xl overflow-hidden shadow-xl">
               <Image
-                src="/images/practice3.jpg"
+                urlEndpoint={process.env.NEXT_PUBLIC_IMAGEKIT_URL_ENDPOINT}
+          src="hero/Practice/dr-bhushan-mahajan-confident-dental-microscope-prudentia-pimple-saudagar.JPG"
                 alt="Dr. Bhushan Mahajan"
                 width={400}
                 height={500}
@@ -310,7 +314,8 @@ export default function PrudentiaMicroDentalCare() {
           <motion.div className="lg:w-1/3" variants={scaleUp}>
             <div className="rounded-xl overflow-hidden shadow-xl">
               <Image
-                src="/images/practice4.jpg"
+               urlEndpoint={process.env.NEXT_PUBLIC_IMAGEKIT_URL_ENDPOINT}
+          src="hero/Practice/dr-disha-mahajan-dental-loupes-compassionate-dentist-portrait-prudentia-pimple-saudagar.JPG"
                 alt="Dr. Disha Avhad Mahajan"
                 width={400}
                 height={500}
@@ -360,7 +365,8 @@ export default function PrudentiaMicroDentalCare() {
           <motion.div className="lg:w-1/3" variants={scaleUp}>
             <div className="rounded-xl overflow-hidden shadow-xl">
               <Image
-                src="/images/practice5.png"
+                urlEndpoint={process.env.NEXT_PUBLIC_IMAGEKIT_URL_ENDPOINT}
+          src="hero/Practice/smiling-dental-assistant-prudentia-gentle-supportive-team-pimple-saudagar.jpg"
                 alt="Ayesha S"
                 width={400}
                 height={500}

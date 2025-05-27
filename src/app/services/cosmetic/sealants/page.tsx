@@ -3,7 +3,8 @@
 import { useState, useEffect } from "react";
 import { motion } from "framer-motion";
 import { useChatbot } from "@/components/chatbotContext";
-import Image from "next/image";
+import { Image } from "@imagekit/next";
+
 
 export default function DentalSealants() {
   const { handleOpenChatbot } = useChatbot();
@@ -103,7 +104,8 @@ export default function DentalSealants() {
             >
               <div className="relative h-80 md:h-96 max-w-full shadow-2xl rounded-xl  shadow-lg mb-8">
                 <Image
-                  src="/images/services/cosmetic/sealants/Image1.jpg"
+                urlEndpoint={process.env.NEXT_PUBLIC_IMAGEKIT_URL_ENDPOINT}
+                  src="hero/Services/cosmetic/5. Sealants/dental-sealants-cavity-prevention-children-prudentia-pune.jpeg"
                   alt="Modern denture solutions"
                   fill
                   className="object-contain"
@@ -247,7 +249,8 @@ export default function DentalSealants() {
             >
               <div className="relative h-80 md:h-96 max-w-full shadow-2xl rounded-xl  shadow-lg mb-8">
                 <Image
-                  src="/images/services/cosmetic/sealants/Image2.png"
+                urlEndpoint={process.env.NEXT_PUBLIC_IMAGEKIT_URL_ENDPOINT}
+                  src="hero/Services/cosmetic/5. Sealants/dental-sealants-cavity-prevention-children-prudentia-pune.jpg"
                   alt="Modern denture solutions"
                   fill
                   className="object-contain"
@@ -521,7 +524,8 @@ export default function DentalSealants() {
             >
               <div className="relative h-80 md:h-96 max-w-full shadow-2xl rounded-xl  shadow-lg mb-8">
                 <Image
-                  src="/images/services/cosmetic/sealants/Image3.jpg"
+                urlEndpoint={process.env.NEXT_PUBLIC_IMAGEKIT_URL_ENDPOINT}
+                  src="hero/Services/cosmetic/5. Sealants/dentals-sealants-cavity-prevention-children-prudentia-pune.jpg"
                   alt="Modern denture solutions"
                   fill
                   className="object-contain"
@@ -560,7 +564,8 @@ export default function DentalSealants() {
             >
               <div className="relative h-80 md:h-96 max-w-full shadow-2xl rounded-xl  shadow-lg mb-8">
                 <Image
-                  src="/images/services/cosmetic/sealants/Image4.jpg"
+                urlEndpoint={process.env.NEXT_PUBLIC_IMAGEKIT_URL_ENDPOINT}
+                  src="hero/Services/cosmetic/5. Sealants/toothbrushs-toothpaste-oral-hygiene-tips-prudentia-pune.jpg"
                   alt="Modern denture solutions"
                   fill
                   className="object-contain"

@@ -16,20 +16,20 @@ export default function SmileSection() {
       <section className="py-1 px-4 bg-white ">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-10">
           <BeforeAfterSlider
-            beforeImage="/images/after1.JPG"
-            afterImage="/images/before1.JPG"
+            beforeImage="hero/Beforeaftersliders/chippedtooth/drill-free-front-tooth-repair-after-composite-smile-restore-prudentia-dental-pune.jpg"
+            afterImage="hero/Beforeaftersliders/chippedtooth/drill-free-front-tooth-repair-before-composite-smile-restore-prudentia-dental-pune.jpg"
           />
           <BeforeAfterSlider
-            beforeImage="/images/after2.JPG"
-            afterImage="/images/before2.JPG"
+            beforeImage="hero/Beforeaftersliders/spaces/instant-front-tooth-gap-closure-after-smile-makeover-prudentia-pimple-saudagar.jpg"
+            afterImage="hero/Beforeaftersliders/spaces/instant-front-tooth-gap-closure-before-smile-makeover-prudentia-pimple-saudagar.jpg"
           />
           <BeforeAfterSlider
-            beforeImage="/images/after3.JPG"
-            afterImage="/images/before3.JPG"
+            beforeImage="hero/Beforeaftersliders/smilemakeover/cosmetic-teeth-cleaning-polishing-one-day-smile-refresh-cosmetic-smile-makeover-after-prudentia-micro-dental-pimple-saudagar.JPG.JPG"
+            afterImage="hero/Beforeaftersliders/smilemakeover/cosmetic-teeth-cleaning-polishing-one-day-smile-refresh-cosmetic-smile-makeover-before-prudentia-micro-dental-pimple-saudagar.jpg"
           />
           <BeforeAfterSlider
-            beforeImage="/images/after4.JPG"
-            afterImage="/images/before4.JPG"
+            beforeImage="hero/Beforeaftersliders/crookedteeth/crooked-front-teeth-aligned-one-day-cosmetic-fix-after-prudentia-dental-pimple-saudagar.jpg"
+            afterImage="hero/Beforeaftersliders/crookedteeth/crooked-front-teeth-aligned-one-day-cosmetic-fix-before-prudentia-dental-pimple-saudagar.jpg"
           />
         </div>
       </section>

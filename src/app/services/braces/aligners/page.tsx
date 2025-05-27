@@ -1,9 +1,10 @@
 'use client'
 import { useState, useEffect } from 'react';
 import Head from 'next/head';
-import Image from 'next/image';
 import { motion } from 'framer-motion';
 import { useChatbot } from '@/components/chatbotContext';
+import { Image } from '@imagekit/next';
+
 
 export default function AlignerTreatment() {
     const { handleOpenChatbot } = useChatbot();
@@ -15,10 +16,10 @@ export default function AlignerTreatment() {
 
   // Image placeholder paths - replace with your actual images
   const images = {
-    image1: '/images/services/braces/aligners/Image1.jpg',
-    image2: '/images/services/braces/aligners/Image2.jpg',
-    image3: '/images/services/braces/aligners/Image3.jpg',
-    image4: '/images/services/braces/aligners/Image4.jpg'
+    image1: 'hero/Services/braces/2. Aligners/clear-aligners-transparent-teeth-straightening-prudentia-dental-pune.jpg',
+    image2: 'hero/Services/braces/2. Aligners/clear-aligners-transparent-teeth-straightening-prudentia-dental-pune.jpeg',
+    image3: 'hero/Services/braces/2. Aligners/Aligners.jpg',
+    image4: 'hero/Services/braces/2. Aligners/clears-aligners-transparent-teeth-straightening-prudentia-dental-pune.jpg'
   };
 
   return (
@@ -47,6 +48,7 @@ export default function AlignerTreatment() {
             className="relative h-80 md:h-96 w-full rounded-xl overflow-hidden shadow-lg mb-8"
           >
             <Image
+            urlEndpoint={process.env.NEXT_PUBLIC_IMAGEKIT_URL_ENDPOINT}
               src={images.image1}
               alt="Person smiling with aligners"
               fill
@@ -83,6 +85,7 @@ export default function AlignerTreatment() {
               className="relative h-64 md:h-80 w-full md:w-1/2 rounded-xl overflow-hidden shadow-lg"
             >
               <Image
+              urlEndpoint={process.env.NEXT_PUBLIC_IMAGEKIT_URL_ENDPOINT}
                 src={images.image2}
                 alt="Clear aligners demonstration"
                 fill
@@ -112,6 +115,7 @@ export default function AlignerTreatment() {
           
           <div className="relative h-80 md:h-96 w-full rounded-xl overflow-hidden shadow-lg mb-10">
             <Image
+            urlEndpoint={process.env.NEXT_PUBLIC_IMAGEKIT_URL_ENDPOINT}
               src={images.image3}
               alt="Benefits of aligners"
               fill
@@ -172,6 +176,7 @@ export default function AlignerTreatment() {
           
           <div className="relative h-80 md:h-96 w-full max-w-4xl mx-auto rounded-xl overflow-hidden shadow-lg mb-10">
             <Image
+            urlEndpoint={process.env.NEXT_PUBLIC_IMAGEKIT_URL_ENDPOINT}
               src={images.image4}
               alt="Smile transformation with aligners"
               fill

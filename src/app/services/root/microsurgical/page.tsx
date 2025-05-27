@@ -2,18 +2,18 @@
 import { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
 import { useChatbot } from '@/components/chatbotContext';
-import Image from 'next/image';
+import { Image } from '@imagekit/next';
+
 
 
 // Sample image URLs - Replace these with your actual images
 const images = [
-  "/images/services/root/rootsurgical/Image1.jpg", // Image 0
-  "/images/services/root/rootsurgical/Image2.jpg", // Image 1
-  "/images/services/root/rootsurgical/Image3.jpg", // Image 2
-  "/images/services/root/rootsurgical/Image4.jpg", // Image 3
-  "/images/services/root/rootsurgical/Image5.jpg", // Image 4
-  "/images/services/root/rootsurgical/Image6.png", // Image 5 (technology)
-  "/images/services/root/rootsurgical/Image7.jpg", // Image 6 (save tooth)
+  "hero/Services/root/3. Micro-Surgical Root Therapy/Healthy-Tooth-surgical-root-canal-apicectomy-prudentia-dental-pune.jpg", // Image 0
+  "hero/Services/root/3. Micro-Surgical Root Therapy/infected tooth-surgical-root-canal-apicectomy-prudentia-dental-pune.jpg", // Image 1
+  "hero/Services/root/3. Micro-Surgical Root Therapy/Micro-Surgical-cleaning-surgical-root-canal-apicectomy-prudentia-dental-pune.jpg", // Image 2
+  "hero/Services/root/3. Micro-Surgical Root Therapy/dental-microscope-collage-prudentia-micro-dental-care-pune.jpg", // Image 3
+  "hero/Services/root/3. Micro-Surgical Root Therapy/Micro-Root-Filling-surgical-root-canal-apicectomy-prudentia-dental-pune.jpg", // Image 4
+  "hero/Services/root/3. Micro-Surgical Root Therapy/healthy-human-tooth-stock-image-prudentia-dental-clinic-pune.jpg", // Image 5 (technology)
 ];
 
 export default function ApicoectomyPage() {
@@ -106,6 +106,7 @@ export default function ApicoectomyPage() {
               className="rounded-lg shadow-lg w-full object-cover h-64 lg:h-full"
             /> */}
             <Image
+              urlEndpoint={process.env.NEXT_PUBLIC_IMAGEKIT_URL_ENDPOINT}
               src={images[0]}
                alt="Modern denture solutions"
                fill
@@ -147,6 +148,7 @@ export default function ApicoectomyPage() {
               className="rounded-lg shadow-lg w-full object-cover h-64 lg:h-full"
             /> */}
                      <Image
+                       urlEndpoint={process.env.NEXT_PUBLIC_IMAGEKIT_URL_ENDPOINT}
               src={images[1]}
                alt="Modern denture solutions"
                fill
@@ -190,6 +192,7 @@ export default function ApicoectomyPage() {
               className="rounded-lg shadow-lg w-full object-cover h-64 lg:h-full"
             /> */}
                      <Image
+                       urlEndpoint={process.env.NEXT_PUBLIC_IMAGEKIT_URL_ENDPOINT}
               src={images[2]}
                alt="Modern denture solutions"
                fill
@@ -230,7 +233,8 @@ export default function ApicoectomyPage() {
               className="rounded-lg shadow-lg w-full object-cover h-64 lg:h-full"
             /> */}
                      <Image
-              src={images[5]}
+                       urlEndpoint={process.env.NEXT_PUBLIC_IMAGEKIT_URL_ENDPOINT}
+              src={images[3]}
                alt="Modern denture solutions"
                fill
               className="object-contain"
@@ -263,7 +267,8 @@ export default function ApicoectomyPage() {
               className="rounded-lg shadow-lg w-full object-cover h-64 lg:h-full"
             /> */}
                      <Image
-              src={images[3]}
+                       urlEndpoint={process.env.NEXT_PUBLIC_IMAGEKIT_URL_ENDPOINT}
+              src={images[4]}
                alt="Modern denture solutions"
                fill
               className="object-contain"
@@ -292,7 +297,8 @@ export default function ApicoectomyPage() {
                   className="rounded-lg shadow-lg w-full object-cover h-64"
                 /> */}
                          <Image
-              src={images[6]}
+                           urlEndpoint={process.env.NEXT_PUBLIC_IMAGEKIT_URL_ENDPOINT}
+              src={images[5]}
                alt="Modern denture solutions"
                fill
               className="object-contain"

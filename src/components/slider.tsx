@@ -1,12 +1,12 @@
 'use client';
 
-import Image, { StaticImageData } from 'next/image';
 import { useState, useRef, useEffect, useCallback } from 'react';
 import { MoveHorizontal } from 'lucide-react';
+import { Image} from '@imagekit/next';
 
 interface BeforeAfterSliderProps {
-  beforeImage: StaticImageData | string;
-  afterImage: StaticImageData | string;
+  beforeImage: string;
+  afterImage: string;
   beforeLabel?: string;
   afterLabel?: string;
 }
@@ -61,6 +61,7 @@ export default function BeforeAfterSlider({
 
         {/* Before Image - Full */}
         <Image
+          urlEndpoint={process.env.NEXT_PUBLIC_IMAGEKIT_URL_ENDPOINT}
           src={beforeImage}
           alt="Before"
           fill
@@ -78,6 +79,7 @@ export default function BeforeAfterSlider({
           }}
         >
           <Image
+            urlEndpoint={process.env.NEXT_PUBLIC_IMAGEKIT_URL_ENDPOINT}
             src={afterImage}
             alt="After"
             fill

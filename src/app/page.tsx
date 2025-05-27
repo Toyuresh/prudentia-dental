@@ -8,6 +8,7 @@ import ServiceSection from "@/components/serviceSection";
 import SmileSection from "@/components/SmileSection";
 import DoctorsSection from "@/components/doctorProfile";
 import TechnologySection from "@/components/uniqueFeature";
+import Testimonial from "@/components/testimonial";
 
 export default function Home() {
 
@@ -28,8 +29,11 @@ export default function Home() {
       <DoctorsSection/>
 
       <TechnologySection/>
+
+      <Testimonial/>
       <ContactUs />
-    
+
+
       <Reviews />
 
    

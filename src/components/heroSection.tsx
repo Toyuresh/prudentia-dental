@@ -4,13 +4,14 @@
 import React from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Autoplay, Pagination, Navigation } from "swiper/modules";
-import Image from "next/image";
- import { useChatbot } from '@/components/chatbotContext';
+import { Image } from "@imagekit/next";
+import { useChatbot } from '@/components/chatbotContext';
 
 // Import Swiper styles
 import "swiper/css";
 import "swiper/css/pagination";
 import "swiper/css/navigation";
+
 
 interface BannerInfo {
   id: string;
@@ -26,7 +27,7 @@ const HeroSection = () => {
 
   const banners: BannerInfo[] = [
     {
-      id: "banner1",
+      id: "dr-bhushan-mahajan-dental-microscope-prudentia-micro-dental-care-Pune",
       title: "Modern dentistry in a relaxing high-tech environment",
       subtitle: "",
       ctaText: "Book Appointment",
@@ -34,21 +35,21 @@ const HeroSection = () => {
       
     },
     {
-      id: "banner2",
+      id: "clinic-reception-area-modern-clean-Prudentia-Micro-Dental-Care",
       title: "The cure for dental anxiety.",
       subtitle: "The home of radiant smiles.",
       ctaText: "Book Appointment",
         ctaAction: handleOpenChatbot
     },
     {
-      id: "banner3",
+      id: "prudentia-micro-dental-care-logo-pimple-saudagar-pune",
       title: "Magnifying Precision Recreating Compassionate Smiles",
       subtitle: "",
       ctaText: "Book Appointment",
       ctaAction: handleOpenChatbot
     },
     {
-      id: "banner4",
+      id: "dental-microscope-prudentia-micro-dental-care-pimple-saudagar",
       title: " Compassionate prevention, pursuit of excellence",
       subtitle: "",
       ctaText: "Book Appointment",
@@ -58,9 +59,9 @@ const HeroSection = () => {
 
   const getImageSrc = (imageName: string) => {
     return {
-      desktop: `/images/hero/desktop/${imageName}.png`,
-      tablet: `/images/hero/tablet/${imageName}.png`,
-      mobile: `/images/hero/mobile/${imageName}.png`,
+      desktop: `hero/desktop/${imageName}.jpg`,
+      tablet: `hero/tablet/${imageName}.jpg`,
+      mobile: `hero/mobile/${imageName}.jpg`,
     };
   };
 
@@ -80,10 +81,11 @@ const HeroSection = () => {
           const imageSrc = getImageSrc(banner.id);
           return (
             <SwiperSlide key={index}>
-              <div className="relative w-full h-full">
+              <div  className=" relative w-full h-full">
                 {/* Desktop Image */}
-                <div className="hidden md:block">
+                <div className="hidden md:block relative w-full h-full">
                   <Image
+                    urlEndpoint={process.env.NEXT_PUBLIC_IMAGEKIT_URL_ENDPOINT}
                     src={imageSrc.desktop}
                     alt={`${banner.id} desktop`}
                     fill
@@ -95,24 +97,28 @@ const HeroSection = () => {
                 </div>
 
                 {/* Tablet Image */}
-                <div className="hidden sm:block md:hidden">
+                <div className="hidden sm:block md:hidden relative w-full h-full">
                   <Image
+                    urlEndpoint={process.env.NEXT_PUBLIC_IMAGEKIT_URL_ENDPOINT}
                     src={imageSrc.tablet}
                     alt={`${banner.id} tablet`}
                     fill
                     quality={100}
+                    priority={index === 0}
                     className="object-cover"
                     sizes="100vw"
                   />
                 </div>
 
                 {/* Mobile Image */}
-                <div className="block sm:hidden">
+                <div className="block sm:hidden relative w-full h-full">
                   <Image
+                    urlEndpoint={process.env.NEXT_PUBLIC_IMAGEKIT_URL_ENDPOINT}
                     src={imageSrc.mobile}
                     alt={`${banner.id} mobile`}
                     fill
                     quality={80}
+                    priority={index === 0}
                     className="object-cover"
                     sizes="100vw"
                   />

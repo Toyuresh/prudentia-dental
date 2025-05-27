@@ -2,7 +2,8 @@
 import React, { useState, useEffect } from 'react';
 import { Star, Award, Users, Clock } from 'lucide-react';
 import { useChatbot } from '@/components/chatbotContext';
-import Image from 'next/image';
+import { Image } from '@imagekit/next';
+
 
 const DentalVeneersPage = () => {
         const { handleOpenChatbot } = useChatbot();
@@ -59,7 +60,8 @@ const DentalVeneersPage = () => {
               " /> */}
 
                               <Image
-                                src="/images/services/cosmetic/veneers/Image1.jpg"
+                                urlEndpoint={process.env.NEXT_PUBLIC_IMAGEKIT_URL_ENDPOINT}
+                                src="hero/Services/cosmetic/6. Veneers/confident-beautiful-smile-cosmetic-dentistry-prudentia-pune.jpg"
                                 alt="Modern denture solutions"
                                 fill
                                 className="object-contain"
@@ -124,7 +126,8 @@ const DentalVeneersPage = () => {
                 <div className="absolute -inset-4 bg-gradient-to-r from-purple-600 to-indigo-600 rounded-2xl opacity-10"></div>
                 {/* <img src="/images/services/cosmetic/veneers/Image2.jpg" alt="Dental Veneers Process" className="relative w-full rounded-2xl shadow-2xl" /> */}
                       <Image
-                                src="/images/services/cosmetic/veneers/Image2.jpg"
+                        urlEndpoint={process.env.NEXT_PUBLIC_IMAGEKIT_URL_ENDPOINT}
+                                src="hero/Services/cosmetic/6. Veneers/cosmetic-front-teeth-issues-collage-prudentia-dental-care-pimple-saudagar.jpg"
                                 alt="Modern denture solutions"
                                 fill
                                 className="object-contain"
@@ -146,17 +149,19 @@ const DentalVeneersPage = () => {
             <h2 className="text-3xl md:text-4xl font-bold text-gray-800 mb-4">
               Types of Dental Veneers
             </h2>
-            <div className="w-20 h-1 bg-purple-600 mx-auto mb-6"></div>
+            <div className=" bg-purple-100 mx-auto mb-6">
             <div className="relative h-80 md:h-96 max-w-full shadow-2xl rounded-xl  shadow-lg mb-8">
-            {/* <img src="/images/services/cosmetic/veneers/Image3.jpg" alt="Types of Veneers" className="mx-auto rounded-lg shadow-lg" /> */}
                   <Image
-                                src="/images/services/cosmetic/veneers/Image3.jpg"
+  urlEndpoint={process.env.NEXT_PUBLIC_IMAGEKIT_URL_ENDPOINT}
+                                src="hero/Services/cosmetic/6. Veneers/porcelain-veneers-smile-makeover-cosmetic-dentistry-pune.jpeg"
                                 alt="Modern denture solutions"
                                 fill
                                 className="object-contain"
                                 priority
                               />
-          </div></div>
+          </div>
+          </div>
+          </div>
           
           <div className="grid md:grid-cols-2 gap-8">
             <div className="bg-white rounded-2xl shadow-xl p-8 border border-gray-100 hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2">
@@ -204,7 +209,8 @@ const DentalVeneersPage = () => {
                 <div className="relative h-80 md:h-96 max-w-full shadow-2xl rounded-xl  shadow-lg mb-8">
                 {/* <img src="/images/services/cosmetic/veneers/Image4.jpg" alt="Benefits of Veneers" className="w-full rounded-lg shadow-2xl mb-8" /> */}
                       <Image
-                                src="/images/services/cosmetic/veneers/Image4.jpg"
+                        urlEndpoint={process.env.NEXT_PUBLIC_IMAGEKIT_URL_ENDPOINT}
+                                src="hero/Services/cosmetic/6. Veneers/porcelain-veneers-smile-makeover-cosmetic-dentistry-pune.jpg"
                                 alt="Modern denture solutions"
                                 fill
                                 className="object-contain"
@@ -256,7 +262,8 @@ const DentalVeneersPage = () => {
               <div className="relative h-80 md:h-96 max-w-full shadow-2xl rounded-xl  shadow-lg mb-8">
               {/* <img src="/images/services/cosmetic/veneers/Image5.jpg" alt="Veneer Consultation" className="w-full rounded-2xl shadow-xl mb-6" /> */}
                     <Image
-                                src="/images/services/cosmetic/veneers/Image5.jpg"
+                      urlEndpoint={process.env.NEXT_PUBLIC_IMAGEKIT_URL_ENDPOINT}
+                                src="hero/Services/cosmetic/6. Veneers/front-teeth-gap-closure-decay-repair-cosmetic-fillings-smile-makeover-prudentia-pimple-saudagar.jpg"
                                 alt="Modern denture solutions"
                                 fill
                                 className="object-contain"

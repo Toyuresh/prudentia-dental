@@ -2,7 +2,7 @@
 import React, { useState, useEffect } from "react";
 import { ChevronDown, Smile, Users, Award, Phone } from "lucide-react";
 import { useChatbot } from "@/components/chatbotContext";
-import Image from "next/image";
+import { Image } from "@imagekit/next";
 
 type VisibilityState = {
   [key: string]: boolean;
@@ -58,7 +58,8 @@ export default function OralHygieneInstructions() {
             <div className="max-w-4xl mx-auto mb-8">
               <div className="bg-white bg-opacity-20 relative h-80 md:h-96 w-full rounded-xl overflow-hidden shadow-lg mb-8 rounded-2xl p-8 backdrop-blur-sm border border-white border-opacity-30">
                 <Image
-                  src="/images/services/preventive/oral/Image1.jpg"
+                  urlEndpoint={process.env.NEXT_PUBLIC_IMAGEKIT_URL_ENDPOINT}
+                  src="hero/Services/preventive/1. oral hygiene measures/daily-oral-hygiene-flossing-tips-pune-prudentia-dental.jpg"
                   alt="Modern denture solutions"
                   fill
                   className="object-contain"
@@ -123,7 +124,8 @@ export default function OralHygieneInstructions() {
             {/* Placeholder for INSERT IMAGE 2 */}
             <div className="max-w-2xl  relative h-80 md:h-96 w-full rounded-xl overflow-hidden shadow-lg mb-8 mx-auto">
               <Image
-                src="/images/services/preventive/oral/Image2.png"
+                urlEndpoint={process.env.NEXT_PUBLIC_IMAGEKIT_URL_ENDPOINT}
+                  src="hero/Services/preventive/1. oral hygiene measures/daily-orals-hygiene-flossing-tips-pune-prudentia-dental.jpg"
                 alt="Modern denture solutions"
                 fill
                 className="object-contain"
@@ -186,7 +188,8 @@ export default function OralHygieneInstructions() {
               {/* Placeholder for INSERT IMAGE 3 */}
               <div className="ml-16 mb-6 relative h-80 md:h-96 w-full rounded-xl overflow-hidden shadow-lg mb-8">
                 <Image
-                  src="/images/services/preventive/oral/Image3.jpg"
+                  urlEndpoint={process.env.NEXT_PUBLIC_IMAGEKIT_URL_ENDPOINT}
+                  src="hero/Services/preventive/1. oral hygiene measures/gum-health-with-flossing-dental-care-pimple-saudagar.jpg"
                   alt="Modern denture solutions"
                   fill
                   className="object-contain"
@@ -314,7 +317,8 @@ export default function OralHygieneInstructions() {
             {/* Placeholder for INSERT IMAGE 4 */}
             <div className="max-w-2xl mx-auto mb-8 relative h-80 md:h-96 w-full rounded-xl overflow-hidden shadow-lg mb-8">
               <Image
-                src="/images/services/preventive/oral/Image4.jpeg"
+                urlEndpoint={process.env.NEXT_PUBLIC_IMAGEKIT_URL_ENDPOINT}
+                  src="hero/Services/preventive/1. oral hygiene measures/gum-health-with-flossing-dental-care-pimple-saudagar.jpeg"
                 alt="Modern denture solutions"
                 fill
                 className="object-contain"
@@ -350,7 +354,8 @@ export default function OralHygieneInstructions() {
             {/* Placeholder for INSERT IMAGE 5 */}
             <div className="max-w-2xl mx-auto mb-8 relative h-80 md:h-96 w-full rounded-xl overflow-hidden shadow-lg mb-8">
               <Image
-                src="/images/services/preventive/oral/Image5.png"
+                urlEndpoint={process.env.NEXT_PUBLIC_IMAGEKIT_URL_ENDPOINT}
+                  src="hero/Services/preventive/1. oral hygiene measures/dailys-oral-hygiene-flossing-tips-pune-prudentia-dental.jpg"
                 alt="Modern denture solutions"
                 fill
                 className="object-contain"

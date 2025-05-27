@@ -3,7 +3,8 @@ import Head from 'next/head';
 import { motion } from 'framer-motion';
 import { FiArrowRight, FiCheck, FiZoomIn, FiShield, FiActivity, FiClock, FiEye } from 'react-icons/fi';
 import { useChatbot } from '@/components/chatbotContext';
-import Image from 'next/image';
+import { Image } from '@imagekit/next';
+
 
 const MicroRootTreatmentPage = () => {
     const { handleOpenChatbot } = useChatbot();
@@ -120,7 +121,8 @@ const MicroRootTreatmentPage = () => {
               >
                 <div className="relative h-48 sm:h-64 md:h-80 lg:h-96 w-full rounded-xl shadow-lg mb-4 sm:mb-8 overflow-hidden">
                   <Image
-                    src="/images/services/root/microroot/Image1.jpg"
+                  urlEndpoint={process.env.NEXT_PUBLIC_IMAGEKIT_URL_ENDPOINT}
+                  src="hero/Services/root/1. Micro-Root Treatment/painless-root-canal-treatment-under-microscope-prudentia-dental-care-pune.jpg"
                     alt="Modern micro-root treatment"
                     fill
                     sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 50vw"
@@ -149,11 +151,12 @@ const MicroRootTreatmentPage = () => {
               <div className="lg:w-1/2 mb-8 lg:mb-0 lg:pr-10 w-full">
                 <div className="relative h-48 sm:h-64 md:h-80 lg:h-96 w-full rounded-xl overflow-hidden shadow-lg mb-6 sm:mb-8">
                   <Image
-                    src="/images/services/root/microroot/Image2.jpg"
+                  urlEndpoint={process.env.NEXT_PUBLIC_IMAGEKIT_URL_ENDPOINT}
+                  src="hero/Services/root/1. Micro-Root Treatment/magnified-dental-operating-field-under-microscope-prudentia-dental-care-pune.jpg"
                     alt="Microscope in root canal treatment"
                     fill
                     sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 50vw"
-                    className="object-cover"
+                    className="object-contain"
                     priority
                   />                     
                 </div>
@@ -218,7 +221,8 @@ const MicroRootTreatmentPage = () => {
               >
                 <div className="relative h-48 sm:h-64 md:h-80 lg:h-96 w-full rounded-xl overflow-hidden shadow-lg mb-6 sm:mb-8">
                   <Image
-                    src="/images/services/root/microroot/Image3.jpg"
+                  urlEndpoint={process.env.NEXT_PUBLIC_IMAGEKIT_URL_ENDPOINT}
+                  src="hero/Services/root/1. Micro-Root Treatment/dental-microscope-magnification-currency-note-demo-prudentia-pune..jpg"
                     alt="Microscope precision in root canal"
                     fill
                     sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 50vw"
@@ -315,8 +319,9 @@ const MicroRootTreatmentPage = () => {
                 transition={{ duration: 0.6 }}
               >
                 <div className="relative h-48 sm:h-64 md:h-80 lg:h-96 w-full rounded-xl overflow-hidden shadow-lg">
-                  <Image
-                    src="/images/services/root/microroot/Image4.jpg"
+                 <Image
+                  urlEndpoint={process.env.NEXT_PUBLIC_IMAGEKIT_URL_ENDPOINT}
+                  src="hero/Services/root/1. Micro-Root Treatment/closeup-dr-bhushan-mahajan-working-under-microscope-prudentia-pune.jpg"
                     alt="Specialist performing micro-root treatment"
                     fill
                     sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 50vw"

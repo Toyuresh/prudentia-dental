@@ -2,7 +2,8 @@
 import { motion } from "framer-motion";
 import { Calendar } from "lucide-react";
 import { useChatbot } from "@/components/chatbotContext";
-import Image from "next/image";
+import { Image } from "@imagekit/next";
+
 
 // Animation variants
 const fadeIn = {
@@ -78,7 +79,8 @@ export default function EnameloplastyPage() {
           >
             <div className="relative h-64 md:h-96 w-full rounded-xl overflow-hidden shadow-lg mb-6 md:mb-8">
               <Image
-                src="/images/services/cosmetic/enamel/Image1.jpg"
+              urlEndpoint={process.env.NEXT_PUBLIC_IMAGEKIT_URL_ENDPOINT}
+                src="hero/Services/cosmetic/2. Enamel Reshaping/enamel-recontouring-enameloplasty-smile-enhancement-prudentia-dental-pune.jpg"
                 alt="Modern denture solutions"
                 fill
                 className="object-cover md:object-contain"
@@ -103,7 +105,8 @@ export default function EnameloplastyPage() {
           <motion.div variants={fadeIn} className="md:w-1/2 w-full order-1 md:order-none">
             <div className="relative h-64 md:h-96 w-full rounded-xl overflow-hidden shadow-lg">
               <Image
-                src="/images/services/cosmetic/enamel/Image2.jpg"
+              urlEndpoint={process.env.NEXT_PUBLIC_IMAGEKIT_URL_ENDPOINT}
+                src="hero/Services/cosmetic/2. Enamel Reshaping/enamels-recontouring-enameloplasty-smile-enhancement-prudentia-dental-pune.jpg"
                 alt="Tooth contouring procedure"
                 fill
                 className="object-cover md:object-contain"
@@ -225,7 +228,8 @@ export default function EnameloplastyPage() {
           <motion.div variants={fadeIn} className="md:w-1/2 w-full">
             <div className="relative h-64 md:h-96 w-full rounded-xl overflow-hidden shadow-lg">
               <Image
-                src="/images/services/cosmetic/enamel/Image3.jpg"
+              urlEndpoint={process.env.NEXT_PUBLIC_IMAGEKIT_URL_ENDPOINT}
+                src="hero/Services/cosmetic/2. Enamel Reshaping/enamelss-recontouring-enameloplasty-smile-enhancement-prudentia-dental-pune.jpg"
                 alt="Dental treatment process"
                 fill
                 className="object-cover md:object-contain"

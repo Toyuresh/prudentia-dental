@@ -1,66 +1,73 @@
 'use client';
 
-import Image from 'next/image';
 import { useState } from 'react';
-import {
-  RowsPhotoAlbum,
-  RenderImageProps,
-  RenderImageContext,
-} from 'react-photo-album';
-import 'react-photo-album/rows.css';
-
+import { RowsPhotoAlbum, RenderImageProps, RenderImageContext } from 'react-photo-album';
 import Lightbox from 'yet-another-react-lightbox';
+import 'react-photo-album/rows.css';
 import 'yet-another-react-lightbox/styles.css';
 
-import photos from '@/components/photos'; // Ensure this path is correct
+import  photos , { ExtendedPhoto } from '@/components/photos';
+import { Image } from '@imagekit/next';
 
-export default function PhotoGallery() {
+export default function GalleryPage() {
   const [index, setIndex] = useState<number>(-1);
 
-  const renderNextImage = (
-    { alt, title, sizes }: RenderImageProps,
-    { photo, width, height }: RenderImageContext
+  const renderImage = (
+    { sizes }: RenderImageProps,
+    { photo, width, height }: RenderImageContext<ExtendedPhoto>
   ) => (
-    <div
-      style={{
-        position: 'relative',
-        width: '100%',
-        aspectRatio: `${width} / ${height}`,
-      }}
-    >
-      <Image
-        src={photo}
-        alt={alt || ''}
-        title={title}
-        fill
-        sizes={sizes}
-        placeholder={'blurDataURL' in photo ? 'blur' : undefined}
-        className="object-cover rounded-xl shadow-sm my-10 hover:scale-[1.02] bg-purple-200  transition-transform duration-300"
-      />
+    <div className="flex flex-col items-center gap-3 p-3 bg-purple-100 rounded-xl shadow-md hover:shadow-xl transition-shadow duration-300">
+      <div className="text-center">
+        <h3 className="text-lg font-semibold text-gray-800">{photo.title}</h3>
+        {/* {photo.description && <p className="text-sm text-gray-500">{photo.description}</p>} */}
+      </div>
+      <div
+        className="w-full overflow-hidden rounded-xl"
+        style={{ position: 'relative', aspectRatio: `${width}/${height}` }}
+      >
+        <Image
+          urlEndpoint={process.env.NEXT_PUBLIC_IMAGEKIT_URL_ENDPOINT}
+          src={photo.src}
+          alt={photo.alt || photo.title || 'Gallery image'}
+          title={photo.title}
+          fill
+          sizes={sizes}
+          className="object-contain transition-transform duration-300 hover:scale-105"
+        />
+      </div>
     </div>
   );
 
   return (
-    <div className="px-4 py-12 bg-white">
+    <main className="min-h-screen bg-gray-50 py-10 px-4 lg:px-20">
+      <h1 className="text-3xl py-15 font-bold text-center  text-gray-800">Our Gallery</h1>
 
       <RowsPhotoAlbum
         photos={photos}
-        targetRowHeight={250}
-        render={{ image: renderNextImage }}
+        targetRowHeight={280}
+        render={{ image: renderImage }}
         onClick={({ index }) => setIndex(index)}
+        spacing={30}
         sizes={{
-          size: 'calc(100vw - 32px)',
-          sizes: [{ viewport: '(min-width: 1024px)', size: '1168px' }],
+          size: 'calc(100vw - 64px)',
+          sizes: [{ viewport: '(min-width: 1024px)', size: '1024px' }],
         }}
       />
 
       <Lightbox
         open={index >= 0}
         close={() => setIndex(-1)}
-        slides={photos}
         index={index}
+        slides={photos.map(photo => ({
+          src: `${process.env.NEXT_PUBLIC_IMAGEKIT_URL_ENDPOINT}${photo.src}`,
+          alt: photo.alt,
+          width: photo.width,
+          height: photo.height,
+          description: photo.description,
+          title: photo.title,
+        }))}
         animation={{ swipe: 300 }}
       />
-    </div>
+    </main>
   );
 }

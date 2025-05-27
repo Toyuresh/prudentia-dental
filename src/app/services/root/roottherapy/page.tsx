@@ -3,18 +3,17 @@
 import { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
 import { useChatbot } from '@/components/chatbotContext';
-import Image from 'next/image';
-
+import { Image } from '@imagekit/next';
 
 // Sample image URLs - Replace these with your actual images
 const images = [
-  "/images/services/root/roottherapy/Image1.jpeg", // Image 1
-  "/images/services/root/roottherapy/Image2.jpg", // Image 2
-  "/images/services/root/roottherapy/Image3.jpg", // Image 3
-  "/images/services/root/roottherapy/Image4.jpg", // Image 4
-  "/images/services/root/roottherapy/Image5.jpg", // Image 5 (diagnosis)
-  "/images/services/root/roottherapy/Image6.png", // Image 6 (instruments)
-  "/images/services/root/roottherapy/Image7.jpg", // Image 7 (smile)
+  "hero/Services/root/2. Revisional Micro-Root therapy/Infected-tooth-repeat-root-canal-retreatment-microscope-prudentia-dental-pune.jpeg", // Image 1
+  "hero/Services/root/2. Revisional Micro-Root therapy/Revisional-Cleaning-repeat-root-canal-retreatment-microscope-prudentia-dental-pune.jpg", // Image 2
+  "hero/Services/root/2. Revisional Micro-Root therapy/dentist-performing-root-canal-under-microscope-prudentia-pune.jpg", // Image 3
+  "hero/Services/root/2. Revisional Micro-Root therapy/advanced-endodontic-equipment-collage-prudentia-micro-dental-care-pune.jpg", // Image 4
+  "hero/Services/root/2. Revisional Micro-Root therapy/Completed-Root-Treatment-repeat-root-canal-retreatment-microscope-prudentia-dental-pune.jpg", // Image 5 (diagnosis)
+  "hero/Services/root/2. Revisional Micro-Root therapy/Follow-up-after-complete-healing-repeat-root-canal-retreatment-microscope-prudentia-dental-pune.jpg", // Image 6 (instruments)
+  "hero/Services/root/2. Revisional Micro-Root therapy/dentist-holding-tooth-model-patient-education-prudentia-pune.jpg", // Image 7 (smile)
 ];
 
 export default function RevisionalMicroRootTherapyPage() {
@@ -111,6 +110,7 @@ export default function RevisionalMicroRootTherapyPage() {
               className="rounded-lg shadow-lg w-full object-contain h-64 lg:h-full"
             /> */}
          <Image
+                urlEndpoint={process.env.NEXT_PUBLIC_IMAGEKIT_URL_ENDPOINT}
                           src={images[0]}
                            alt="Modern denture solutions"
                            fill
@@ -153,6 +153,7 @@ export default function RevisionalMicroRootTherapyPage() {
               className="rounded-lg shadow-lg w-full object-contain h-64 lg:h-full"
             /> */}
          <Image
+         urlEndpoint={process.env.NEXT_PUBLIC_IMAGEKIT_URL_ENDPOINT}
                           src={images[1]}
                            alt="Modern denture solutions"
                            fill
@@ -196,6 +197,7 @@ export default function RevisionalMicroRootTherapyPage() {
               className="rounded-lg shadow-lg w-full object-contain h-64 lg:h-full"
             /> */}
          <Image
+         urlEndpoint={process.env.NEXT_PUBLIC_IMAGEKIT_URL_ENDPOINT}
                           src={images[4]}
                            alt="Modern denture solutions"
                            fill
@@ -241,6 +243,7 @@ export default function RevisionalMicroRootTherapyPage() {
               className="rounded-lg shadow-lg w-full object-contain h-64 lg:h-full"
             /> */}
          <Image
+         urlEndpoint={process.env.NEXT_PUBLIC_IMAGEKIT_URL_ENDPOINT}
                           src={images[5]}
                            alt="Modern denture solutions"
                            fill
@@ -286,6 +289,7 @@ export default function RevisionalMicroRootTherapyPage() {
               className="rounded-lg shadow-lg w-full object-contain h-64 lg:h-full"
             /> */}
          <Image
+         urlEndpoint={process.env.NEXT_PUBLIC_IMAGEKIT_URL_ENDPOINT}
                           src={images[2]}
                            alt="Modern denture solutions"
                            fill
@@ -323,6 +327,7 @@ export default function RevisionalMicroRootTherapyPage() {
               className="rounded-lg shadow-lg w-full object-contain h-64 lg:h-full"
             /> */}
                      <Image
+                     urlEndpoint={process.env.NEXT_PUBLIC_IMAGEKIT_URL_ENDPOINT}
                           src={images[3]}
                            alt="Modern denture solutions"
                            fill
@@ -353,6 +358,7 @@ export default function RevisionalMicroRootTherapyPage() {
                   className="rounded-lg shadow-lg w-full object-contain h-64"
                 /> */}
          <Image
+         urlEndpoint={process.env.NEXT_PUBLIC_IMAGEKIT_URL_ENDPOINT}
                           src={images[6]}
                            alt="Modern denture solutions"
                            fill

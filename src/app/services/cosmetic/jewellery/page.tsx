@@ -3,7 +3,8 @@
 import { useState, useEffect } from "react";
 import { motion } from "framer-motion";
 import { useChatbot } from "@/components/chatbotContext";
-import Image from "next/image";
+import { Image } from "@imagekit/next";
+
 
 export default function DentalJewelry() {
   const { handleOpenChatbot } = useChatbot();
@@ -120,7 +121,8 @@ export default function DentalJewelry() {
             >
               <div className="relative h-80 md:h-96 w-full shadow-2xl rounded-xl  shadow-lg mb-8">
                 <Image
-                  src="/images/services/cosmetic/jewellery/Image1.jpg"
+                 urlEndpoint={process.env.NEXT_PUBLIC_IMAGEKIT_URL_ENDPOINT}
+                  src="hero/Services/cosmetic/4. Tooth jewellery/tooth-jewellery-smile-enhancement-cosmetic-dentistry-prudentia-pune.jpg"
                   alt="Modern denture solutions"
                   fill
                   className="object-cover"
@@ -260,7 +262,8 @@ export default function DentalJewelry() {
             >
               <div className="relative h-80 md:h-96 w-full shadow-2xl rounded-xl overflow-hidden shadow-lg mb-8">
                 <Image
-                  src="/images/services/cosmetic/jewellery/Image2.jpg"
+                 urlEndpoint={process.env.NEXT_PUBLIC_IMAGEKIT_URL_ENDPOINT}
+                  src="hero/Services/cosmetic/4. Tooth jewellery/tooths-jewellery-smile-enhancement-cosmetic-dentistry-prudentia-pune.jpg"
                   alt="Modern denture solutions"
                   fill
                   className="object-cover"
@@ -307,7 +310,8 @@ export default function DentalJewelry() {
             >
               <div className="relative h-80 md:h-96 w-full shadow-2xl rounded-xl overflow-hidden shadow-lg mb-8">
                 <Image
-                  src="/images/services/cosmetic/jewellery/Image3.jpg"
+                 urlEndpoint={process.env.NEXT_PUBLIC_IMAGEKIT_URL_ENDPOINT}
+                  src="hero/Services/cosmetic/4. Tooth jewellery/tooths-jewellerys-smile-enhancement-cosmetic-dentistry-prudentia-pune.jpeg"
                   alt="Modern denture solutions"
                   fill
                   className="object-contain"

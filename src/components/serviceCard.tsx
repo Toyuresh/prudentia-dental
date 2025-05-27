@@ -1,5 +1,5 @@
+import { Image } from '@imagekit/next';
 import { CheckCircleIcon } from 'lucide-react';
-import Image from 'next/image';
 
 const ServiceCard = ({
   mainTitle,
@@ -24,6 +24,7 @@ const ServiceCard = ({
       {/* Image section */}
       <div className="relative h-70 w-full">
         <Image
+          urlEndpoint={process.env.NEXT_PUBLIC_IMAGEKIT_URL_ENDPOINT}
           src={image}
           alt={title}
           fill

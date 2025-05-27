@@ -1,9 +1,10 @@
 'use client'
 import { useState, useEffect } from 'react';
 import Head from 'next/head';
-import Image from 'next/image';
 import { motion, AnimatePresence } from 'framer-motion';
 import { useChatbot } from '@/components/chatbotContext';
+import { Image } from '@imagekit/next';
+
 
 export default function DenturesTreatment() {
     const { handleOpenChatbot } = useChatbot();
@@ -16,10 +17,10 @@ export default function DenturesTreatment() {
 
   // Image placeholder paths - replace with your actual images
   const images = {
-    image1: '/images/services/dentures/Image1.jpg',
-    image2: '/images/services/dentures/Image2.jpg',
-    image3: '/images/services/dentures/Image3.jpg',
-    image4: '/images/services/dentures/Image4.jpg'
+    image1: 'hero/Services/dentures/premium-custom-dentures-oral-rehabilitation-prudentia-pune.jpg',
+    image2: 'hero/Services/dentures/premiums-custom-dentures-oral-rehabilitation-prudentia-pune.jpg',
+    image3: 'hero/Services/dentures/premium-customs-dentures-oral-rehabilitation-prudentia-pune.jpg',
+    image4: 'hero/Services/dentures/premium-custom-denturess-oral-rehabilitation-prudentia-pune.jpg'
   };
 
   const dentureTypes = [
@@ -66,6 +67,7 @@ export default function DenturesTreatment() {
             className="relative h-80 md:h-96 w-full rounded-xl overflow-hidden shadow-lg mb-8"
           >
             <Image
+            urlEndpoint={process.env.NEXT_PUBLIC_IMAGEKIT_URL_ENDPOINT}
               src={images.image1}
               alt="Modern denture solutions"
               fill
@@ -110,6 +112,7 @@ export default function DenturesTreatment() {
               className="relative h-64 md:h-80 w-full md:w-1/2 rounded-xl overflow-hidden shadow-lg"
             >
               <Image
+              urlEndpoint={process.env.NEXT_PUBLIC_IMAGEKIT_URL_ENDPOINT}
                 src={images.image2}
                 alt="Denture candidate evaluation"
                 fill
@@ -133,6 +136,7 @@ export default function DenturesTreatment() {
           
           <div className="relative h-80 md:h-96 w-full rounded-xl overflow-hidden shadow-lg mb-10">
             <Image
+            urlEndpoint={process.env.NEXT_PUBLIC_IMAGEKIT_URL_ENDPOINT}
               src={images.image3}
               alt="Types of dentures"
               fill
@@ -189,6 +193,7 @@ export default function DenturesTreatment() {
             <div className="lg:w-1/2">
               <div className="relative h-64 w-full rounded-lg overflow-hidden shadow-lg">
                 <Image
+                urlEndpoint={process.env.NEXT_PUBLIC_IMAGEKIT_URL_ENDPOINT}
                   src={images.image4}
                   alt="Benefits of implant-supported dentures"
                   fill

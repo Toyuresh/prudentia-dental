@@ -9,7 +9,8 @@ import {
   Star,
 } from "lucide-react";
 import { useChatbot } from "@/components/chatbotContext";
-import Image from "next/image";
+import { Image } from "@imagekit/next";
+
 
 export default function CompositeFillings() {
   const { handleOpenChatbot } = useChatbot();
@@ -60,7 +61,8 @@ export default function CompositeFillings() {
             </div>
             <div className="mt-8 bg-white bg-opacity-90 rounded-2xl p-6 max-w-2xl mx-auto relative h-80 md:h-96 w-full rounded-xl overflow-hidden shadow-lg mb-8">
               <Image
-                src="/images/services/restorative/coloured/Image1.jpg"
+              urlEndpoint={process.env.NEXT_PUBLIC_IMAGEKIT_URL_ENDPOINT}
+                src="hero/Services/restorative/1. Tooth coloured fillings/composite-syringe-dental-fillings-cosmetic-dentistry-prudentia-pune.jpg"
                 alt="Modern denture solutions"
                 fill
                 className="object-contain"
@@ -101,7 +103,8 @@ export default function CompositeFillings() {
               </h2>
               <div className="bg-white rounded-2xl p-8 shadow-lg border border-gray-100 relative h-80 md:h-96 w-full rounded-xl overflow-hidden shadow-lg mb-8">
                 <Image
-                  src="/images/services/restorative/coloured/Image2.jpg"
+                urlEndpoint={process.env.NEXT_PUBLIC_IMAGEKIT_URL_ENDPOINT}
+                  src="hero/Services/restorative/1. Tooth coloured fillings/biomimetic-composite-filling-natural-tooth-repair-pimple-saudagar.jpg"
                   alt="Modern denture solutions"
                   fill
                   className="object-contain"
@@ -187,7 +190,8 @@ export default function CompositeFillings() {
           >
             <div className="bg-white rounded-2xl p-6 shadow-lg inline-block relative h-80 md:h-96 w-full rounded-xl overflow-hidden shadow-lg mb-8">
               <Image
-                src="/images/services/restorative/coloured/Image3.png"
+              urlEndpoint={process.env.NEXT_PUBLIC_IMAGEKIT_URL_ENDPOINT}
+                src="hero/Services/restorative/1. Tooth coloured fillings/biomimetics-composite-filling-natural-tooth-repair-pimple-saudagar.jpg"
                 alt="Modern denture solutions"
                 fill
                 className="object-contain"
@@ -219,7 +223,8 @@ export default function CompositeFillings() {
             >
               <div className="bg-white rounded-2xl p-6 shadow-lg relative h-80 md:h-96 w-full rounded-xl overflow-hidden shadow-lg mb-8">
                 <Image
-                  src="/images/services/restorative/coloured/Image4.jpg"
+                urlEndpoint={process.env.NEXT_PUBLIC_IMAGEKIT_URL_ENDPOINT}
+                  src="hero/Services/restorative/1. Tooth coloured fillings/biomimeticss-composite-filling-natural-tooth-repair-pimple-saudagar.jpg"
                   alt="Modern denture solutions"
                   fill
                   className="object-contain"

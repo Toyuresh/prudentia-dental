@@ -3,7 +3,7 @@ import React, { useState, useEffect } from 'react';
 import { Heart, Shield, Smile, Star, Phone, Mail, MapPin, Baby } from 'lucide-react';
 import { motion } from 'framer-motion';
 import { useChatbot } from '@/components/chatbotContext';
-import Image from 'next/image';
+import { Image } from '@imagekit/next';
 
 const PediatricDentistryPage = () => {
      const { handleOpenChatbot } = useChatbot();
@@ -123,7 +123,8 @@ const PediatricDentistryPage = () => {
          
                 <div className="relative h-80 md:h-96 w-full rounded-xl overflow-hidden shadow-lg mb-8">
                           <Image
-                            src="/images/services/children/Image1.png"
+                           urlEndpoint={process.env.NEXT_PUBLIC_IMAGEKIT_URL_ENDPOINT}
+                    src="hero/Services/childrens/kids-dentist-pediatric-dental-care-pimple-saudagar-prudentia-micro-dental-care.jpg"
                             alt="Modern denture solutions"
                             fill
                             className="object-contain"

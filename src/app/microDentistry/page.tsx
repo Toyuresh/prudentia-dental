@@ -1,7 +1,7 @@
 "use client"
 import React, { useEffect, useRef } from 'react';
-import Image from 'next/image';
 import { useChatbot } from '@/components/chatbotContext';
+import { Image } from '@imagekit/next';
 
 // Helper component for scroll-triggered animations
 const AnimatedSection: React.FC<{ children: React.ReactNode; className?: string }> = ({ children, className = '' }) => {
@@ -55,13 +55,14 @@ export default function MicroDentistry() {
         {/* Banner Section */}
         <section className="relative h-96 flex items-center justify-center text-white overflow-hidden">
           <Image
-            src="/images/microBanner.jpg"
+            urlEndpoint={process.env.NEXT_PUBLIC_IMAGEKIT_URL_ENDPOINT}
+            src="hero/MicroDentistry/zoomed-dental-microscope-prudentia-why-micro-dentistry-page-pimple-saudagar.jpg"
             alt="Micro-Dentistry Banner"
-            layout="fill"
-            objectFit="cover"
+            fill
+            className="object-cover z-0"
             quality={90}
             priority
-            className="z-0"
+            
           />
           <div className="absolute inset-0 bg-purple-900 opacity-70 z-10"></div>
           <AnimatedSection className="relative z-20 text-center p-4">
@@ -89,8 +90,9 @@ export default function MicroDentistry() {
 
             <div className="flex flex-col md:flex-row items-center md:space-x-12 mt-10">
               <AnimatedSection className="w-full md:w-1/2 mb-8 md:mb-0">
-                <Image
-                  src="/images/micro1.png"
+                 <Image
+            urlEndpoint={process.env.NEXT_PUBLIC_IMAGEKIT_URL_ENDPOINT}
+            src="hero/MicroDentistry/Image1.png"
                   alt="Micro-Dentistry Precision"
                   width={600}
                   height={400}
@@ -143,8 +145,9 @@ export default function MicroDentistry() {
 
             <div className="flex flex-col md:flex-row-reverse items-center md:space-x-reverse md:space-x-12 mt-10">
               <AnimatedSection className="w-full md:w-1/2 mb-8 md:mb-0">
-                <Image
-                  src="/images/micro2.jpeg"
+                 <Image
+            urlEndpoint={process.env.NEXT_PUBLIC_IMAGEKIT_URL_ENDPOINT}
+            src="hero/MicroDentistry/dentist-patient-treatment-explanation-screen-visual-consultation-prudentia-pune.jpg"
                   alt="Micro-Dentistry Benefits"
                   width={600}
                   height={400}
@@ -208,8 +211,9 @@ export default function MicroDentistry() {
 
             <div className="flex flex-col md:flex-row items-center md:space-x-12 mt-10">
               <AnimatedSection className="w-full md:w-1/2 mb-8 md:mb-0">
-                <Image
-                  src="/images/micro3.jpg"
+                 <Image
+            urlEndpoint={process.env.NEXT_PUBLIC_IMAGEKIT_URL_ENDPOINT}
+            src="hero/MicroDentistry/dr-bhushan-microscope-dental-treatment-painless-relaxing-environment-prudentia-pimple-saudagar.jpg"
                   alt="Micro-Dentistry Treatments"
                   width={600}
                   height={400}

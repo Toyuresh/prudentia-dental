@@ -4,7 +4,7 @@ import Head from 'next/head';
 import { motion, AnimatePresence } from 'framer-motion';
 import { FiArrowRight, FiCheckCircle, FiPhoneCall } from 'react-icons/fi';
 import { useChatbot } from '@/components/chatbotContext';
-import Image from 'next/image';
+import { Image } from '@imagekit/next';
 
 
 const DentalTechnologyPage = () => {
@@ -21,7 +21,7 @@ const DentalTechnologyPage = () => {
         "Faster healing, less discomfort",
         "Live video demos"
       ],
-      image: "/images/tech2.png"
+      image: `${process.env.NEXT_PUBLIC_IMAGEKIT_URL_ENDPOINT}/hero/Tech/dental-microscope-collage-precision-painless-treatment-prudentia-dental-care-pimple-saudagar.jpg`
     },
     {
       title: "Fluorescent Caries Detection",
@@ -31,7 +31,7 @@ const DentalTechnologyPage = () => {
         "No radiation",
         "Prevent major dental treatments"
       ],
-      image: "/images/tech3.png"
+      image: `${process.env.NEXT_PUBLIC_IMAGEKIT_URL_ENDPOINT}/hero/Tech/caries-detection-probe-early-cavity-diagnosis-prudentia-dental-technology-pimple-saudagar.jpg`
     },
     {
       title: "Needle-Free Electronic Anesthesia",
@@ -41,7 +41,7 @@ const DentalTechnologyPage = () => {
         "Gentle, pain-free numbing",
         "Ideal for kids and anxious patients"
       ],
-      image: "/images/tech4.jpeg"
+      image: `${process.env.NEXT_PUBLIC_IMAGEKIT_URL_ENDPOINT}/hero/Tech/electronic-dental-anesthesia-painless-needle-free-treatment-prudentia-dental-care-pimple-saudagar.jpg`
     },
     {
       title: "Advanced Root Canal Technology",
@@ -51,7 +51,7 @@ const DentalTechnologyPage = () => {
         "Less discomfort",
         "Minimal tissue damage"
       ],
-      image: "/images/tech5.png"
+      image: `${process.env.NEXT_PUBLIC_IMAGEKIT_URL_ENDPOINT}/hero/Tech/advanced-endodontic-dental-technology-collage-microscope-endo-motor-prudentia-dental-pune.jpg`
     },
     {
       title: "Digital X-Rays",
@@ -62,7 +62,7 @@ const DentalTechnologyPage = () => {
         "Better, faster diagnosis",
         "Safer for all ages"
       ],
-      image: "/images/tech6.jpg"
+      image: `${process.env.NEXT_PUBLIC_IMAGEKIT_URL_ENDPOINT}/hero/Tech/digital-xray-portable-dental-machine-low-radiation-prudentia-dental-care-pimple-saudagar.jpg`
     },
     {
       title: "Ultrasonic Cleaning",
@@ -72,7 +72,7 @@ const DentalTechnologyPage = () => {
         "Pain-free plaque removal",
         "Whiter teeth, fresher breath"
       ],
-      image: "/images/tech7.jpeg"
+      image: `${process.env.NEXT_PUBLIC_IMAGEKIT_URL_ENDPOINT}/hero/Tech/ultrasonic-scaler-teeth-cleaning-whitening-prudentia-dental-care-pimple-Saudagar.jpg`
     }
   ];
 
@@ -122,8 +122,9 @@ const DentalTechnologyPage = () => {
               transition={{ duration: 0.8, delay: 0.2 }}
               className="mt-16 rounded-xl overflow-hidden shadow-2xl relative h-80 md:h-96 w-full rounded-xl overflow-hidden shadow-lg mb-8"
             >
-              <Image
-                src="/images/tech1.JPG" 
+          <Image
+          urlEndpoint={process.env.NEXT_PUBLIC_IMAGEKIT_URL_ENDPOINT}
+                src="hero/Tech/dr-bhushan-mahajan-microscope-treatment-assistant-precision-dentistry-prudentia-pune.jpg"
                 alt="Modern denture solutions"
                 fill
                 className="object-contain"
@@ -287,8 +288,9 @@ const DentalTechnologyPage = () => {
                 transition={{ duration: 0.6 }}
               >
                 <div className="relative rounded-xl overflow-hidden shadow-2xl aspect-square relative h-80 md:h-96 w-full rounded-xl overflow-hidden shadow-lg mb-8">
-                  <Image
-                    src="/images/tech8.png" 
+                 <Image
+                urlEndpoint={process.env.NEXT_PUBLIC_IMAGEKIT_URL_ENDPOINT}
+                src="hero/Tech/dental-sterilization-collage-classb-autoclave-uv-ultrasonic-prudentia-dental-care-pune.jpg"
                     alt="Modern denture solutions"
                     fill
                     className="object-contain"

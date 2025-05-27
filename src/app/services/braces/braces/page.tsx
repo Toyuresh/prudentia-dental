@@ -1,9 +1,9 @@
 'use client'
 import { useState, useEffect } from 'react';
 import Head from 'next/head';
-import Image from 'next/image';
 import { motion } from 'framer-motion';
 import { useChatbot } from '@/components/chatbotContext';
+import { Image } from '@imagekit/next';
 
 export default function ConventionalBraces() {
      const { handleOpenChatbot } = useChatbot();
@@ -12,12 +12,12 @@ export default function ConventionalBraces() {
   useEffect(() => {
     setLoaded(true);
   }, []);
-
+  
   // Image placeholder paths - replace with your actual images
   const images = {
-    image1: '/images/services/braces/braces/Image1.jpg',
-    image2: '/images/services/braces/braces/Image2.png',
-    image3: '/images/services/braces/braces/Image3.jpg'
+    image1: 'hero/Services/braces/1. Conventional Metal And Ceramic Braces/metal-ceramic-braces-aesthetic-teeth-straightening-prudentia-pune.jpg',
+    image2: 'hero/Services/braces/1. Conventional Metal And Ceramic Braces/metal-sceramic-braces-aesthetic-teeth-straightening-prudentia-pune.jpg',
+    image3: 'hero/Services/braces/1. Conventional Metal And Ceramic Braces/metals-ceramic-braces-aesthetic-teeth-straightening-prudentia-pune.jpg'
   };
 
   return (
@@ -46,6 +46,7 @@ export default function ConventionalBraces() {
             className="relative h-80 md:h-96 w-full rounded-xl overflow-hidden shadow-lg mb-8"
           >
             <Image
+            urlEndpoint={process.env.NEXT_PUBLIC_IMAGEKIT_URL_ENDPOINT}
               src={images.image1}
               alt="Modern conventional braces"
               fill
@@ -94,6 +95,7 @@ export default function ConventionalBraces() {
           
           <div className="relative h-80 md:h-96 w-full rounded-xl overflow-hidden shadow-lg mb-10">
             <Image
+            urlEndpoint={process.env.NEXT_PUBLIC_IMAGEKIT_URL_ENDPOINT}
               src={images.image2}
               alt="Types of conventional braces"
               fill
@@ -142,6 +144,7 @@ export default function ConventionalBraces() {
           
           <div className="relative h-80 md:h-96 w-full max-w-4xl mx-auto rounded-xl overflow-hidden shadow-lg mb-10">
             <Image
+            urlEndpoint={process.env.NEXT_PUBLIC_IMAGEKIT_URL_ENDPOINT}
               src={images.image3}
               alt="Smile transformation with braces"
               fill

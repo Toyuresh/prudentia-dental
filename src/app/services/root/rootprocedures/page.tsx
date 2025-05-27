@@ -3,7 +3,8 @@ import { useState, useEffect } from 'react';
 import Head from 'next/head';
 import { motion, AnimatePresence } from 'framer-motion';
 import { useChatbot } from '@/components/chatbotContext';
-import Image from 'next/image';
+import { Image } from '@imagekit/next';
+
 
 const RegenerativeTherapy = () => {
   const { handleOpenChatbot } = useChatbot();
@@ -28,7 +29,7 @@ const RegenerativeTherapy = () => {
         "Uses tissue engineering principles",
         "Essential for young patients needing root growth"
       ],
-       image: "/images/services/root/rootprocedures/Image1.jpg",
+       image: "hero/Services/root/4. Regenerative Root Procedures/clean-tooth-stock-photo-prudentia-micro-dental-care-pune.jpg",
       icon: "🌱"
     },
     {
@@ -41,7 +42,7 @@ const RegenerativeTherapy = () => {
         "Restores function in infected teeth",
         "Alternative to extractions/implants"
       ],
-      image: "/images/services/root/rootprocedures/Image2.jpg",
+      image: "hero/Services/root/4. Regenerative Root Procedures/regenerative-endodontics-natural-tooth-healing-prudentia-dental-pune..jpg",
       icon: "⚕️"
     },
     {
@@ -53,7 +54,7 @@ const RegenerativeTherapy = () => {
         "Short roots limiting longevity",
         "Loss of tooth vitality and strength"
       ],
-      image: "/images/services/root/rootprocedures/Image3.jpg",
+      image: "hero/Services/root/4. Regenerative Root Procedures/regenerative-endodontics-natural-tooth-healing-prudentia-dental-pune.jpg",
       icon: "⚠️"
     },
     {
@@ -66,7 +67,7 @@ const RegenerativeTherapy = () => {
         "Preserves young patients' natural teeth",
         "Avoids invasive extractions/implants"
       ],
-      image: "/images/services/root/rootprocedures/Image4.jpg",
+      image: "hero/Services/root/4. Regenerative Root Procedures/regeneratives-endodontics-natural-tooth-healing-prudentia-dental-pune.jpg",
       icon: "✨"
     },
     {
@@ -79,7 +80,7 @@ const RegenerativeTherapy = () => {
         "Gentle yet effective regeneration",
         "Long-term structural integrity"
       ],
-      image: "/images/services/root/rootprocedures/Image5.jpg",
+      image: "hero/Services/root/4. Regenerative Root Procedures/dental-microscope-closeup-precision-treatment-prudentia-dental-pune.jpg",
       icon: "🔬"
     }
   ];
@@ -167,12 +168,8 @@ const RegenerativeTherapy = () => {
                       animate={{ scale: 1 }}
                       className="text-9xl"
                     >
-                          {/* <img 
-              src={insert.image} 
-              alt="Apicoectomy procedure" 
-              className="rounded-lg shadow-lg w-full object-contain h-64 lg:h-full"
-            /> */}
                               <Image
+                               urlEndpoint={process.env.NEXT_PUBLIC_IMAGEKIT_URL_ENDPOINT}
                           src={insert.image}
                            alt="Modern denture solutions"
                            fill

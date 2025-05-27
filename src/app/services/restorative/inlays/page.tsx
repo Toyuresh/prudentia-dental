@@ -2,7 +2,7 @@
 import React, { useState, useEffect } from 'react';
 import { Shield, Eye, Clock, Star, Calendar, Smile } from 'lucide-react';
 import { useChatbot } from '@/components/chatbotContext';
-import Image from 'next/image';
+import { Image } from '@imagekit/next';
 
 
 export default function InlaysOnlays() {
@@ -59,7 +59,8 @@ export default function InlaysOnlays() {
             <div className="mt-12">
               <div className="bg-white bg-opacity-95 rounded-3xl p-8 max-w-4xl mx-auto shadow-2xl relative h-80 md:h-96 w-full rounded-xl overflow-hidden shadow-lg mb-8">
                       <Image
-                          src="/images/services/restorative/inlays/Image1.jpg"
+                      urlEndpoint={process.env.NEXT_PUBLIC_IMAGEKIT_URL_ENDPOINT}
+                          src="hero/Services/restorative/2. Inlays and Onlays/tooth-inlay-onlay-crown-prudentia-pune.jpg"
                           alt="Modern denture solutions"
                           fill
                           className="object-contain"
@@ -110,7 +111,8 @@ export default function InlaysOnlays() {
             >
               <div className="bg-white rounded-3xl p-8 shadow-xl relative h-80 md:h-96 w-full rounded-xl overflow-hidden shadow-lg mb-8">
                       <Image
-                          src="/images/services/restorative/inlays/Image2.jpeg"
+                      urlEndpoint={process.env.NEXT_PUBLIC_IMAGEKIT_URL_ENDPOINT}
+                          src="hero/Services/restorative/2. Inlays and Onlays/tooth-inlay-onlay-crowns-prudentia-pune.jpg"
                           alt="Modern denture solutions"
                           fill
                           className="object-contain"
@@ -160,7 +162,8 @@ export default function InlaysOnlays() {
             
             <div className="bg-white rounded-3xl p-8 shadow-xl inline-block mb-12 relative h-80 md:h-96 w-full rounded-xl overflow-hidden shadow-lg mb-8">
                       <Image
-                          src="/images/services/restorative/inlays/Image3.png"
+                      urlEndpoint={process.env.NEXT_PUBLIC_IMAGEKIT_URL_ENDPOINT}
+                          src="hero/Services/restorative/2. Inlays and Onlays/tooths-inlay-onlay-crown-prudentia-pune.jpg"
                           alt="Modern denture solutions"
                           fill
                           className="object-contain"
@@ -284,7 +287,8 @@ export default function InlaysOnlays() {
             
             <div className="bg-white bg-opacity-10 rounded-2xl p-6 mb-8 backdrop-blur-sm relative h-80 md:h-96 w-full rounded-xl overflow-hidden shadow-lg mb-8">
                       <Image
-                          src="/images/services/restorative/inlays/Image4.jpg"
+                      urlEndpoint={process.env.NEXT_PUBLIC_IMAGEKIT_URL_ENDPOINT}
+                          src="hero/Services/restorative/2. Inlays and Onlays/before-after-dental-onlay-case-prudentia.jpg"
                           alt="Modern denture solutions"
                           fill
                           className="object-contain"

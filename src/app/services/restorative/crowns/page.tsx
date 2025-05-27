@@ -2,7 +2,8 @@
 import React, { useState, useEffect } from 'react';
 import { Shield, Eye, CheckCircle, Microscope, Star, Calendar } from 'lucide-react';
 import { useChatbot } from '@/components/chatbotContext';
-import Image from 'next/image';
+import { Image } from '@imagekit/next';
+
 
 
 export default function CrownsBridges() {
@@ -66,7 +67,8 @@ export default function CrownsBridges() {
             <div className="mt-12 ">
               <div className="bg-white bg-opacity-10 rounded-3xl p-8 backdrop-blur-sm border border-white/20 max-w-4xl mx-auto relative h-80 md:h-96 w-full rounded-xl overflow-hidden shadow-lg mb-8">
                        <Image
-                          src="/images/services/restorative/crowns/Image1.jpg"
+                       urlEndpoint={process.env.NEXT_PUBLIC_IMAGEKIT_URL_ENDPOINT}
+                          src="hero/Services/restorative/3. Crowns and Bridges/zirconia-dental-crowns-bridge-prudentia-pune.jpg"
                           alt="Modern denture solutions"
                           fill
                           className="object-contain"
@@ -108,7 +110,8 @@ export default function CrownsBridges() {
             
             <div className="bg-white rounded-3xl p-8 shadow-xl inline-block mb-12 border border-purple-100 relative h-80 md:h-96 w-full rounded-xl overflow-hidden shadow-lg mb-8">
                         <Image
-                          src="/images/services/restorative/crowns/Image2.jpg"
+                        urlEndpoint={process.env.NEXT_PUBLIC_IMAGEKIT_URL_ENDPOINT}
+                          src="hero/Services/restorative/3. Crowns and Bridges/digital-dental-crowns-bridge-prudentia-pune.jpg"
                           alt="Modern denture solutions"
                           fill
                           className="object-contain"
@@ -182,7 +185,8 @@ export default function CrownsBridges() {
             
             <div className="bg-white rounded-3xl p-8 shadow-xl inline-block mb-12 border border-purple-100 relative h-80 md:h-96 w-full rounded-xl overflow-hidden shadow-lg mb-8">
                    <Image
-                          src="/images/services/restorative/crowns/Image3.jpg"
+                   urlEndpoint={process.env.NEXT_PUBLIC_IMAGEKIT_URL_ENDPOINT}
+                          src="hero/Services/restorative/3. Crowns and Bridges/dr-bhushan-microscope-crown-bridge-procedure-prudentia.JPG"
                           alt="Modern denture solutions"
                           fill
                           className="object-contain"
@@ -255,7 +259,8 @@ export default function CrownsBridges() {
             
             <div className="bg-white rounded-3xl p-8 shadow-xl inline-block mb-12 border border-purple-100 relative h-80 md:h-96 w-full rounded-xl overflow-hidden shadow-lg mb-8">
                    <Image
-                          src="/images/services/restorative/crowns/Image4.jpg"
+                   urlEndpoint={process.env.NEXT_PUBLIC_IMAGEKIT_URL_ENDPOINT}
+                          src="hero/Services/restorative/3. Crowns and Bridges/Digital-zirconia-dental-bridge-prudentia-pune.jpg"
                           alt="Modern denture solutions"
                           fill
                           className="object-contain"

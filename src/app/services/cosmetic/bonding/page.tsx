@@ -3,7 +3,7 @@
 import { useState, useEffect } from "react";
 import { motion } from "framer-motion";
 import { useChatbot } from "@/components/chatbotContext";
-import Image from "next/image";
+import { Image } from "@imagekit/next";
 
 export default function CompositeBonding() {
   const { handleOpenChatbot } = useChatbot();
@@ -77,7 +77,8 @@ export default function CompositeBonding() {
             >
               <div className="relative h-80 md:h-96 w-full rounded-xl overflow-hidden shadow-lg mb-8">
                 <Image
-                  src="/images/services/cosmetic/bonding/Image1.jpg"
+                urlEndpoint={process.env.NEXT_PUBLIC_IMAGEKIT_URL_ENDPOINT}
+                  src="hero/Services/cosmetic/3. Bonding (Permanant tooth Coloured fillings)/composite-syringes-light-curing-dental-fillings-prudentia-pune.JPG"
                   alt="Modern denture solutions"
                   fill
                   className="object-cover"
@@ -128,7 +129,8 @@ export default function CompositeBonding() {
             <motion.div variants={fadeIn} className="w-full lg:w-1/2 px-4">
               <div className="relative h-80 md:h-96 w-full rounded-xl overflow-hidden shadow-lg mb-8">
                 <Image
-                  src="/images/services/cosmetic/bonding/Image2.jpg"
+                urlEndpoint={process.env.NEXT_PUBLIC_IMAGEKIT_URL_ENDPOINT}
+                  src="hero/Services/cosmetic/3. Bonding (Permanant tooth Coloured fillings)/composite-syringes-light-curing-dental-fillings-prudentia-pune.jpg"
                   alt="Modern denture solutions"
                   fill
                   className="object-cover"
@@ -289,7 +291,8 @@ export default function CompositeBonding() {
             >
               <div className="relative h-80 md:h-96 w-full rounded-xl overflow-hidden shadow-lg mb-8">
                 <Image
-                  src="/images/services/cosmetic/bonding/Image3.jpg"
+                urlEndpoint={process.env.NEXT_PUBLIC_IMAGEKIT_URL_ENDPOINT}
+                  src="hero/Services/cosmetic/3. Bonding (Permanant tooth Coloured fillings)/cosmetic-front-teeth-issues-collage-prudentia-dental-care-pimple-saudagar.jpg"
                   alt="Modern denture solutions"
                   fill
                   className="object-contain"
@@ -326,7 +329,8 @@ export default function CompositeBonding() {
               className="relative h-80 md:h-96 w-full rounded-xl overflow-hidden shadow-lg mb-8"
             >
               <Image
-                src="/images/services/cosmetic/bonding/Image4.jpg"
+              urlEndpoint={process.env.NEXT_PUBLIC_IMAGEKIT_URL_ENDPOINT}
+                src="hero/Services/cosmetic/3. Bonding (Permanant tooth Coloured fillings)/cosmetic-composite-fillings-front-teeth-gap-closure-prudentia-micro-dental-care-pimple-saudagar.jpg"
                 alt="Modern denture solutions"
                 fill
                 className="object-contain"
@@ -346,7 +350,8 @@ export default function CompositeBonding() {
               className="relative h-80 md:h-96 w-full rounded-xl overflow-hidden shadow-lg mb-8"
             >
               <Image
-                src="/images/services/cosmetic/bonding/Image5.jpg"
+              urlEndpoint={process.env.NEXT_PUBLIC_IMAGEKIT_URL_ENDPOINT}
+                src="hero/Services/cosmetic/3. Bonding (Permanant tooth Coloured fillings)/non-invasive-chipped-tooth-repair-composite-contouring-prudentia-dental-care-pune.jpg"
                 alt="Modern denture solutions"
                 fill
                 className="object-contain"
@@ -366,7 +371,8 @@ export default function CompositeBonding() {
               className="relative h-80 md:h-96 w-full rounded-xl overflow-hidden shadow-lg mb-8"
             >
               <Image
-                src="/images/services/cosmetic/bonding/Image6.jpg"
+              urlEndpoint={process.env.NEXT_PUBLIC_IMAGEKIT_URL_ENDPOINT}
+                src="hero/Services/cosmetic/3. Bonding (Permanant tooth Coloured fillings)/cosmetic-bonding-chipped-tooth-before-after-aesthetic-repair-prudentia-pimple-saudagar.jpg"
                 alt="Modern denture solutions"
                 fill
                 className="object-contain"
@@ -383,7 +389,8 @@ export default function CompositeBonding() {
               className="relative h-80 md:h-96 w-full rounded-xl overflow-hidden shadow-lg mb-8"
             >
               <Image
-                src="/images/services/cosmetic/bonding/Image7.jpg"
+              urlEndpoint={process.env.NEXT_PUBLIC_IMAGEKIT_URL_ENDPOINT}
+                src="hero/Services/cosmetic/3. Bonding (Permanant tooth Coloured fillings)/front-tooth-missing-fiber-reinforced-bridge-no-drill-smile-restoration-prudentia-pimple-saudagar.jpg"
                 alt="Modern denture solutions"
                 fill
                 className="object-contain"

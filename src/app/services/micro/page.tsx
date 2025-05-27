@@ -3,7 +3,7 @@ import Head from 'next/head';
 import { motion } from 'framer-motion';
 import { FiArrowRight, FiCheck, FiZoomIn, FiEye, FiShield, FiActivity } from 'react-icons/fi';
 import { useChatbot } from '@/components/chatbotContext';
-import Image from 'next/image';
+import { Image } from '@imagekit/next';
 
 const MicroscopeDentistryPage = () => {
      const { handleOpenChatbot } = useChatbot();
@@ -92,7 +92,8 @@ const MicroscopeDentistryPage = () => {
               >
                 <div className="relative h-64 sm:h-80 md:h-96 w-full rounded-xl shadow-lg mb-4 sm:mb-8 overflow-hidden">
                   <Image
-                    src="/images/services/Micro/Image1.jpg"
+                  urlEndpoint={process.env.NEXT_PUBLIC_IMAGEKIT_URL_ENDPOINT}
+                  src="hero/Services/micro/dental-microscope-operatory-prudentia-logo-modern-clinic-pimple-saudagar.jpg"
                     alt="Dental microscope equipment for precision dentistry"
                     fill
                     sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 50vw"
@@ -136,8 +137,9 @@ const MicroscopeDentistryPage = () => {
               >
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                   <div className="relative h-48 sm:h-64 md:h-80 w-full rounded-xl overflow-hidden shadow-lg">
-                    <Image
-                      src="/images/services/Micro/Image2.jpg"
+                                     <Image
+                  urlEndpoint={process.env.NEXT_PUBLIC_IMAGEKIT_URL_ENDPOINT}
+                  src="hero/Services/micro/magnified-dental-cavity-microscope-vs-naked-eye-comparison-prudentia-dental-pune.jpg"
                       alt="Microscopic view of dental examination"
                       fill
                       sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 25vw"
@@ -145,8 +147,9 @@ const MicroscopeDentistryPage = () => {
                     />
                   </div>
                   <div className="relative h-48 sm:h-64 md:h-80 w-full rounded-xl overflow-hidden shadow-lg">
-                    <Image
-                      src="/images/services/Micro/Image3.jpg"
+                                     <Image
+                  urlEndpoint={process.env.NEXT_PUBLIC_IMAGEKIT_URL_ENDPOINT}
+                  src="hero/Services/micro/tooth-cavity-naked-eye-vs-microscope-detection-accuracy-prudentia-dental-pune.jpg"
                       alt="Advanced dental microscope technology"
                       fill
                       sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 25vw"
@@ -236,8 +239,9 @@ const MicroscopeDentistryPage = () => {
             >
               <div className="w-full lg:w-1/2 mb-8 lg:mb-0 lg:pr-8 xl:pr-10 order-2 lg:order-1">
                 <div className="relative h-64 sm:h-80 md:h-96 w-full rounded-xl overflow-hidden shadow-lg">
-                  <Image
-                    src="/images/services/Micro/Image4.jpg"
+                                   <Image
+                  urlEndpoint={process.env.NEXT_PUBLIC_IMAGEKIT_URL_ENDPOINT}
+                  src="hero/Services/micro/dr-bhushan-mahajan-microscope-dental-treatment-focused-view-prudentia-dental-pimple-saudagar-pune.jpg"
                     alt="Benefits of microscopic dentistry"
                     fill
                     sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 50vw"
@@ -303,8 +307,9 @@ const MicroscopeDentistryPage = () => {
                 transition={{ duration: 0.6 }}
               >
                 <div className="relative h-64 sm:h-80 md:h-96 w-full rounded-xl overflow-hidden shadow-lg">
-                  <Image
-                    src="/images/services/Micro/Image5.jpg"
+                                   <Image
+                  urlEndpoint={process.env.NEXT_PUBLIC_IMAGEKIT_URL_ENDPOINT}
+                  src="hero/Services/micro/advanced-teeth-cleaning-equipment-stain-tartar-removal-prudentia-dental-pune.jpg"
                     alt="Advanced dental cleaning with microscope"
                     fill
                     sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 50vw"

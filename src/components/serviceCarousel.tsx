@@ -20,7 +20,8 @@ const ThemeCarousel = () => {
       ctaPrimary: "Book Consultation",
       ctaSecondary: "Learn More",
       tagline: "Preventive. Holistic. Exceptional Care.",
-      image: "/images/MicroService.png"
+      image: "hero/WhyPrudentia/dental-operating-microscope-benefits-prudentia-micro-dental-care-Pimple-saudagar.jpg",
+      url: `${process.env.NEXT_PUBLIC_IMAGEKIT_URL_ENDPOINT}`
     },
       {
       mainTitle: "Caries",
@@ -35,7 +36,8 @@ const ThemeCarousel = () => {
       ctaPrimary: "Book Consultation",
       ctaSecondary: "Learn More",
       tagline: "Scan your smile today — protect your pearly whites with confidence.",
-      image: "/images/Caries.png"
+      image: "hero/WhyPrudentia/caries-detection-probe-early-cavity-prudentia-micro-dental-care-pimple-saudagar.jpg",
+      url: `${process.env.NEXT_PUBLIC_IMAGEKIT_URL_ENDPOINT}`
     },
     {
       mainTitle: "Electronic Anesthesia",
@@ -50,7 +52,8 @@ const ThemeCarousel = () => {
       ctaPrimary: "Book Consultation",
       ctaSecondary: "Learn More",
       tagline: "Relax. We've made dentistry pain-free.",
-      image: "/images/ADAE.jpeg"
+      image: "hero/WhyPrudentia/electronic-anesthesia-painless-dental-injection-prudentia-micro-dental-care-pimple-saudagar.jpg",
+      url: `${process.env.NEXT_PUBLIC_IMAGEKIT_URL_ENDPOINT}`
     },
     {
       mainTitle: "Digital Xrays",
@@ -66,7 +69,8 @@ const ThemeCarousel = () => {
       ctaPrimary: "Book Consultation",
       ctaSecondary: "Learn More",
       tagline: "Instant results & easy digital records",
-      image: "/images/Xray.jpg"
+      image: "hero/WhyPrudentia/digital-dental-xray-portable-dc-low-radiation-prudentia-micro-dental-care-pimple-saudagar.jpg",
+      url: `${process.env.NEXT_PUBLIC_IMAGEKIT_URL_ENDPOINT}`
     },
     {
       mainTitle: "Advanced Root Treatments",
@@ -82,7 +86,8 @@ const ThemeCarousel = () => {
       ctaPrimary: "Book Consultation",
       ctaSecondary: "Learn More",
       tagline: "Experience high-grade, evidence-based root care—done right the first time.",
-      image: "/images/RootTreatment.png"
+      image: "hero/WhyPrudentia/advanced-root-canal-instruments-apex-endo-motor-prudentia-micro-dental-pimple-saudagar.jpg",
+      url: `${process.env.NEXT_PUBLIC_IMAGEKIT_URL_ENDPOINT}`
     },
     {
       mainTitle: "High end Sterilization",
@@ -97,7 +102,8 @@ const ThemeCarousel = () => {
       ctaPrimary: "Book Consultation",
       ctaSecondary: "Learn More",
       tagline: "Feel safe. Stay protected. Dental care you can trust.",
-      image: "/images/Sterilization.png"
+      image: "hero/WhyPrudentia/dental-sterilization-classb-autoclave-ultrasonic-uv-prudentia-micro-dental-pune.jpg",
+      url: `${process.env.NEXT_PUBLIC_IMAGEKIT_URL_ENDPOINT}`
     },
     // Add more service card objects as needed
   ];

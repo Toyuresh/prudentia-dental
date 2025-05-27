@@ -3,7 +3,7 @@ import React, { useState, useEffect } from "react";
 import { Shield, Moon, Activity, Zap, ChevronDown } from "lucide-react";
 import Head from "next/head";
 import { useChatbot } from "@/components/chatbotContext";
-import Image from "next/image";
+import { Image } from "@imagekit/next";
 
 type VisibilityState = {
   [key: string]: boolean;
@@ -69,7 +69,8 @@ export default function MouthguardsPage() {
               <div className="max-w-4xl mx-auto mb-8">
                 <div className="bg-white bg-opacity-20 relative h-80 md:h-96 w-full rounded-xl overflow-hidden shadow-lg mb-8 rounded-2xl p-8 backdrop-blur-sm border border-white border-opacity-30">
                   <Image
-                    src="/images/services/preventive/guards/Image1.jpg"
+                    urlEndpoint={process.env.NEXT_PUBLIC_IMAGEKIT_URL_ENDPOINT}
+                    src="hero/Services/preventive/2. Mouth guards and sport guards/teeth-grinding-treatment-night-guard-pune-prudentia.jpg"
                     alt="Modern denture solutions"
                     fill
                     className="object-contain"
@@ -122,8 +123,9 @@ export default function MouthguardsPage() {
 
               <div className="grid md:grid-cols-2 gap-8 ">
                 <div className="relative h-80 md:h-96 w-full rounded-xl overflow-hidden shadow-lg mb-8">
-                      <Image
-                    src="/images/services/preventive/guards/Image2.jpg"
+                  <Image
+                    urlEndpoint={process.env.NEXT_PUBLIC_IMAGEKIT_URL_ENDPOINT}
+                    src="hero/Services/preventive/2. Mouth guards and sport guards/teeths-grinding-treatment-night-guard-pune-prudentia.jpg"
                     alt="Modern denture solutions"
                     fill
                     className="object-contain"
@@ -200,8 +202,9 @@ export default function MouthguardsPage() {
 
               <div className="grid md:grid-cols-2 gap-8 items-center">
                 <div className="relative h-80 md:h-96 w-full rounded-xl overflow-hidden shadow-lg mb-8">
-                         <Image
-                    src="/images/services/preventive/guards/Image3.jpg"
+                  <Image
+                    urlEndpoint={process.env.NEXT_PUBLIC_IMAGEKIT_URL_ENDPOINT}
+                    src="hero/Services/preventive/2. Mouth guards and sport guards/customs-sports-mouthguard-dental-protection-pune.jpg"
                     alt="Modern denture solutions"
                     fill
                     className="object-contain"
@@ -274,8 +277,9 @@ export default function MouthguardsPage() {
 
               <div className="grid md:grid-cols-2 gap-8 items-center">
                 <div className="order-1 md:order-2 relative h-80 md:h-96 w-full rounded-xl overflow-hidden shadow-lg mb-8">
-                         <Image
-                    src="/images/services/preventive/guards/Image4.jpg"
+                  <Image
+                    urlEndpoint={process.env.NEXT_PUBLIC_IMAGEKIT_URL_ENDPOINT}
+                    src="hero/Services/preventive/2. Mouth guards and sport guards/custom-sportss-mouthguard-dental-protection-pune.jpg"
                     alt="Modern denture solutions"
                     fill
                     className="object-contain"
@@ -340,8 +344,9 @@ export default function MouthguardsPage() {
 
               <div className="grid md:grid-cols-2 gap-8 items-center">
                 <div className="relative h-80 md:h-96 w-full rounded-xl overflow-hidden shadow-lg mb-8">
-                         <Image
-                    src="/images/services/preventive/guards/Image5.jpg"
+                  <Image
+                    urlEndpoint={process.env.NEXT_PUBLIC_IMAGEKIT_URL_ENDPOINT}
+                    src="hero/Services/preventive/2. Mouth guards and sport guards/custom-sportsss-mouthguard-dental-protection-pune.jpg"
                     alt="Modern denture solutions"
                     fill
                     className="object-contain"

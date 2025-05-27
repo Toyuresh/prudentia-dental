@@ -2,6 +2,7 @@ import type { Metadata } from 'next'
 import { Geist, Geist_Mono } from "next/font/google"
 import './globals.css'
 import ClientLayout from './client-layout'
+import { GoogleTagManager, GoogleAnalytics } from '@next/third-parties/google';
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -28,7 +29,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: 'Prudentia Micro Dental Care',
     description: 'Your trusted dental care provider',
-    url: 'https://yourdomain.com',
+    url: 'https://www.prudentiamicrodental.in/',
     siteName: 'Prudentia Dental',
     images: [
       {
@@ -55,6 +56,8 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en" className={`${ geistSans.variable} ${geistMono.variable}`} suppressHydrationWarning >
+      <GoogleTagManager gtmId="GTM-5W447RDS" />
+      <GoogleAnalytics gaId="G-ZJ4L6STY2Y" />
       <body>
         <ClientLayout>{children}</ClientLayout>
       </body>

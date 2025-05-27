@@ -2,21 +2,21 @@
 import { useState, useEffect } from "react";
 import { motion } from "framer-motion";
 import { useChatbot } from "@/components/chatbotContext";
-import Image from "next/image";
+import { Image } from "@imagekit/next";
 
 // Sample image URLs - Replace these with your actual images
 const images = [
-  "/images/services/cosmetic/smile/Image1.jpg", // Image 1 (hero)
-  "/images/services/cosmetic/smile/Image2.jpg", // Image 2 (list of issues)
-  "/images/services/cosmetic/smile/Image3.jpg", // Image 3 (bonding)
-  "/images/services/cosmetic/smile/Image4.png", // Image 4 (whitening)
-  "/images/services/cosmetic/smile/Image5.jpg", // Image 5 (veneers)
-  "/images/services/cosmetic/smile/Image6.jpg", // Image 6 (before-after)
-  "/images/services/cosmetic/smile/Image7.jpg", // Image 7 (before-after)
-  "/images/services/cosmetic/smile/Image8.jpg", // Image 8 (before-after)
-  "/images/services/cosmetic/smile/Image9.jpg", // Image 9 (before-after)
-  "/images/services/cosmetic/smile/Image10.jpg", // Image 10 (before-after)
-  "/images/services/cosmetic/smile/Image11.jpg", // Image 11 (before-after)
+  "hero/Services/cosmetic/1. Minimally Invasive Smile Recreations/smile-dental-mirror-checkup-patient-prudentia-dental-pune.jpg", // Image 1 (hero)
+  "hero/Services/cosmetic/1. Minimally Invasive Smile Recreations/cosmetic-front-teeth-issues-collage-prudentia-dental-care-pimple-saudagar.jpg", // Image 2 (list of issues)
+  "hero/Services/cosmetic/1. Minimally Invasive Smile Recreations/same-day-composite-veneers-stained-front-teeth-correction-prudentia-pimple-saudagar.jpg", // Image 3 (bonding)
+  "hero/Services/cosmetic/1. Minimally Invasive Smile Recreations/teeth-whitening-before-after-smile-prudentia-dental-pimple-saudagar.jpg", // Image 4 (whitening)
+  "hero/Services/cosmetic/1. Minimally Invasive Smile Recreations/veneers-smile-shade-selection-prudentia-dental-care-pune.jpg", // Image 5 (veneers)
+  "hero/Services/cosmetic/1. Minimally Invasive Smile Recreations/before-after-chipped-tooth-composite-bonding-smile-makeover-prudentia-pimple-saudagar.jpg", // Image 6 (before-after)
+  "hero/Services/cosmetic/1. Minimally Invasive Smile Recreations/single-day-smile-makeover-chipped-teeth-gap-closure-prudentia-pimple-saudagar.jpg", // Image 7 (before-after)
+  "hero/Services/cosmetic/1. Minimally Invasive Smile Recreations/minimally-invasive-composite-discolored-tooth-restoration-prudentia-pimple-saudagar.jpg", // Image 8 (before-after)
+  "hero/Services/cosmetic/1. Minimally Invasive Smile Recreations/front-tooth-decay-cosmetic-composite-filling-restoration-prudentia-dental-pimple-saudagar.jpg", // Image 9 (before-after)
+  "hero/Services/cosmetic/1. Minimally Invasive Smile Recreations/diastema-closure-composite-gap-filling-front-teeth-smile-prudentia-pimple-saudagar.jpg", // Image 10 (before-after)
+  "hero/Services/cosmetic/1. Minimally Invasive Smile Recreations/cosmetic-bonding-crooked-front-teeth-correction-smile-prudentia-pimple-saudagar.jpg", // Image 11 (before-after)
 ];
 
 export default function MinimallyInvasiveCosmeticDentistryPage() {
@@ -96,6 +96,7 @@ export default function MinimallyInvasiveCosmeticDentistryPage() {
             >
               <div className="relative h-80 md:h-96 max-w-full shadow-2xl rounded-xl  shadow-lg mb-8">
                 <Image
+                urlEndpoint={process.env.NEXT_PUBLIC_IMAGEKIT_URL_ENDPOINT}
                   src={images[0]}
                   alt="Modern denture solutions"
                   fill
@@ -187,6 +188,7 @@ export default function MinimallyInvasiveCosmeticDentistryPage() {
           <motion.div variants={itemVariants} className="relative">
             <div className="relative h-80 md:h-96 max-w-full shadow-2xl rounded-xl  shadow-lg mb-8">
               <Image
+              urlEndpoint={process.env.NEXT_PUBLIC_IMAGEKIT_URL_ENDPOINT}
                 src={images[1]}
                 alt="Modern denture solutions"
                 fill
@@ -229,6 +231,7 @@ export default function MinimallyInvasiveCosmeticDentistryPage() {
             >
               <div className="relative h-80 md:h-96 max-w-full shadow-2xl rounded-xl  shadow-lg mb-8">
                 <Image
+                urlEndpoint={process.env.NEXT_PUBLIC_IMAGEKIT_URL_ENDPOINT}
                   src={images[2]}
                   alt="Modern denture solutions"
                   fill
@@ -254,6 +257,7 @@ export default function MinimallyInvasiveCosmeticDentistryPage() {
             >
               <div className="relative h-80 md:h-96 max-w-full shadow-2xl rounded-xl  shadow-lg mb-8">
                 <Image
+                urlEndpoint={process.env.NEXT_PUBLIC_IMAGEKIT_URL_ENDPOINT}
                   src={images[3]}
                   alt="Modern denture solutions"
                   fill
@@ -279,6 +283,7 @@ export default function MinimallyInvasiveCosmeticDentistryPage() {
             >
               <div className="relative h-80 md:h-96 max-w-full shadow-2xl rounded-xl  shadow-lg mb-8">
                 <Image
+                urlEndpoint={process.env.NEXT_PUBLIC_IMAGEKIT_URL_ENDPOINT}
                   src={images[4]}
                   alt="Modern denture solutions"
                   fill
@@ -488,20 +493,17 @@ export default function MinimallyInvasiveCosmeticDentistryPage() {
                 key={index}
                 variants={itemVariants}
                 whileHover={{ y: -5 }}
-                className="bg-white rounded-xl shadow-lg overflow-hidden"
+                className=" relative h-80 md:h-96 max-w-full shadow-2xl rounded-xl  shadow-lg mb-8 bg-white rounded-xl shadow-lg overflow-hidden"
               >
-                <div className="relative h-80 md:h-96 max-w-full shadow-2xl rounded-xl  shadow-lg mb-8">
                   <Image
+                  urlEndpoint={process.env.NEXT_PUBLIC_IMAGEKIT_URL_ENDPOINT}
                     src={images[index]}
                     alt="Modern denture solutions"
                     fill
                     className="object-contain"
                     priority
                   />
-                </div>
-                <div className="p-4 text-center">
-                  <p className="text-indigo-900 font-bold">Before & After</p>
-                </div>
+     
               </motion.div>
             ))}
           </div>
@@ -582,7 +584,8 @@ export default function MinimallyInvasiveCosmeticDentistryPage() {
               <div className="absolute inset-0 bg-purple-200 rounded-xl transform -rotate-3"></div>
               <div className="relative h-80 md:h-96 max-w-full shadow-2xl rounded-xl  shadow-lg mb-8">
                 <Image
-                  src="/images/services/cosmetic/smile/Image1.jpg"
+                urlEndpoint={process.env.NEXT_PUBLIC_IMAGEKIT_URL_ENDPOINT}
+                  src={images[0]}
                   alt="Modern denture solutions"
                   fill
                   className="object-contain"

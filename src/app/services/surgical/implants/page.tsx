@@ -4,7 +4,7 @@ import { Smile, Shield, Heart, CheckCircle, Award, Star, Users } from 'lucide-re
 import { motion } from 'framer-motion';
 import { FiArrowRight } from 'react-icons/fi';
 import { useChatbot } from '@/components/chatbotContext';
-import Image from 'next/image';
+import { Image } from '@imagekit/next';
 
 const DentalImplantsPage = () => {
     const { handleOpenChatbot } = useChatbot();
@@ -142,7 +142,8 @@ const DentalImplantsPage = () => {
                   className="rounded-xl shadow-2xl"
                 /> */}
        <Image
-                          src="/images/services/surgical/implants/Image1.jpg" 
+         urlEndpoint={process.env.NEXT_PUBLIC_IMAGEKIT_URL_ENDPOINT}
+                          src="hero/Services/surgical/2. implants/titanium-dental-implant-placement-pune-prudentia-micro-dental.jpg" 
                            alt="Modern denture solutions"
                            fill
                           className="object-contain"
@@ -196,7 +197,8 @@ const DentalImplantsPage = () => {
                   className="w-full rounded-2xl shadow-xl"
                 /> */}
        <Image
-                          src="/images/services/surgical/implants/Image2.jpg" 
+         urlEndpoint={process.env.NEXT_PUBLIC_IMAGEKIT_URL_ENDPOINT}
+                          src="hero/Services/surgical/2. implants/titanium-dental-implants-placement-pune-prudentia-micro-dental.jpg" 
                            alt="Modern denture solutions"
                            fill
                           className="object-contain"
@@ -271,7 +273,8 @@ const DentalImplantsPage = () => {
                   className="w-full rounded-2xl shadow-xl"
                 /> */}
                        <Image
-                          src="/images/services/surgical/implants/Image3.jpg" 
+                         urlEndpoint={process.env.NEXT_PUBLIC_IMAGEKIT_URL_ENDPOINT}
+                          src="hero/Services/surgical/2. implants/natural-looking-dentals-implants-smile-restoration-prudentia-dental.jpg" 
                            alt="Modern denture solutions"
                            fill
                           className="object-contain"
@@ -348,7 +351,8 @@ const DentalImplantsPage = () => {
                     className="w-full h-64 lg:h-80 object-cover"
                   /> */}
                          <Image
-                          src="/images/services/surgical/implants/Image4.jpg" 
+                           urlEndpoint={process.env.NEXT_PUBLIC_IMAGEKIT_URL_ENDPOINT}
+                          src="hero/Services/surgical/2. implants/natural-lookings-dental-implants-smile-restoration-prudentia-dental.jpg" 
                            alt="Modern denture solutions"
                            fill
                           className="object-contain"
