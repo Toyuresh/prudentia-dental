@@ -56,11 +56,12 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en" className={`${ geistSans.variable} ${geistMono.variable}`} suppressHydrationWarning >
-      
+      <head><meta name="google-site-verification" content="BOgtYCJusHM44yTia3FykHXUH1Z2L0jaRXrrtH_mfLw" /></head>
       <body>
+
+        <ClientLayout>{children}</ClientLayout>
         <GoogleTagManager gtmId="GTM-5W447RDS" />
         <GoogleAnalytics gaId="G-ZJ4L6STY2Y" />
-        <ClientLayout>{children}</ClientLayout>
       </body>
     </html>
   )
