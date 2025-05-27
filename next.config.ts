@@ -6,7 +6,7 @@ const nextConfig: NextConfig = {
   reactStrictMode: true,
   images: {
     unoptimized: true,// Required for static export
-    domains: ['images.unsplash.com'], // Add the hostname here
+    domains: ['ik.imagekit.io'], // Add the hostname here
   },
 };
 
